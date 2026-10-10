@@ -1,0 +1,10 @@
+---
+// TEMPORARY wordmark. The original logo file could not be downloaded during the
+// build (network blocked). Replace this component's markup with the real logo.
+interface Props { sub?: boolean }
+const { sub = true } = Astro.props;
+---
+<span class="brand-stack">
+  <span class="wordmark">Cloud<em>9</em></span>
+  {sub && <span class="wordmark-sub">Med Spa</span>}
+</span>

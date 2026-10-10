@@ -1,0 +1,46 @@
+---
+import Split from './Split.astro';
+import Art from './Art.astro';
+import Icon from './Icon.astro';
+import Flag from './Flag.astro';
+import { nameOf, t, services, price, show, fill } from '../lib/site.js';
+interface Props { lang: 'en' | 'es' }
+const { lang } = Astro.props;
+const s = t(lang);
+const cats = services.categories.map((c) => ({ ...c, label: s.menu.cats[c.id as keyof typeof s.menu.cats], items: services.items.filter((i) => i.cat === c.id && show(i)) }));
+---
+<section class="section menu" id="treatments" aria-labelledby="menu-h">
+  <div class="wrap menu-grid">
+    <div class="menu-side">
+      <h2 class="display h-l split" id="menu-h" data-split><Split text={s.menu.h2} /></h2>
+      <p class="lede" data-reveal>{s.menu.lede}</p>
+      <div class="filters" role="group" aria-label={s.nav.treatments} data-filters hidden>
+        <button type="button" aria-pressed="true" data-filter="all">{s.menu.all}</button>
+        {cats.map((c) => <button type="button" aria-pressed="false" data-filter={c.id}>{c.label}</button>)}
+      </div>
+      <div class="menu-art" data-unmask>
+        {cats.map((c, i) => <Art name={c.art as any} class={i === 0 ? 'on' : ''} label={fill(s.menu.artLabel, { cat: c.label })} />)}
+        <span class="cap" data-art-cap>{cats[0].label}</span>
+      </div>
+    </div>
+    <div class="menu-list">
+      {cats.map((c) => (
+        <div class="menu-cat" data-cat={c.id} data-label={c.label}>
+          <div class="menu-cat-head" data-reveal>
+            <span class="mini"><Art name={c.art as any} /></span>
+            <h3>{c.label}</h3>
+          </div>
+          {c.items.map((it) => (
+            <div class="menu-row" data-cat-row={c.id}>
+              <h4>{nameOf(it, lang)}{it.verified === false && <Flag label={s.review.tag} note="Service not confirmed on the owner's own site." />}</h4>
+              <span class="price">{price(it, s)}</span>
+              <p>{it[lang]}</p>
+              <span class="mins">{it.mins} {s.menu.min}</span>
+            </div>
+          ))}
+        </div>
+      ))}
+      <div class="menu-cta"><a class="btn" href="#book" data-cta="menu">{s.menu.cta}<Icon name="arrow" size={18} /></a></div>
+    </div>
+  </div>
+</section>

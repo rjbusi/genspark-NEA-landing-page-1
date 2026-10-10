@@ -1,0 +1,32 @@
+---
+import Split from './Split.astro';
+import Flag from './Flag.astro';
+import { t, team, show } from '../lib/site.js';
+interface Props { lang: 'en' | 'es' }
+const { lang } = Astro.props;
+const s = t(lang);
+const people = team.people.filter(show);
+---
+<section class="section team" id="team" aria-labelledby="team-h">
+  <div class="wrap">
+    <div class="team-head">
+      <h2 class="display h-l split" id="team-h" data-split><Split text={s.team.h2} /></h2>
+      <p class="lede" data-reveal>{s.team.lede}</p>
+    </div>
+    <div class="team-grid">
+      {people.map((m, i) => (
+        <article class="person" data-reveal style={`--d:${i * 140}ms`}>
+          <div class:list={['portrait', i % 2 && 'alt']} data-unmask>
+            {m.photo
+              ? <img src={m.photo} alt={m.name} loading="lazy" decoding="async" width="800" height="1000" />
+              : <><span class="initial" aria-hidden="true">{m.name[0]}</span><span class="soon">{s.team.photoSoon}</span></>}
+          </div>
+          <h3>{m.name}{m.verified === false && <Flag label={s.review.tag} note="Last name and credentials to confirm." />}</h3>
+          <p class="role">{m.role[lang]}</p>
+          <p class="bio">{m.bio[lang]}</p>
+          <div class="focus">{m.focus[lang].map((f: string) => <span class="chip">{f}</span>)}</div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

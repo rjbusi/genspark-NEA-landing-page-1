@@ -1,0 +1,43 @@
+{
+  "_readme": "Business facts. Anything with \"verified\": false is shown only in review builds (SITE_MODE=review) and left out of schema.org in production. Flip to true once the owner confirms.",
+  "name": "Cloud9 Med Spa",
+  "url": "https://cloudninemedspadfw.com",
+  "phone": { "display": "(972) 897-2355", "tel": "+19728972355", "verified": true },
+  "email": { "value": "cloudninemedspa@gmail.com", "verified": true },
+  "address": {
+    "street": "11751 Alta Vista Rd, Suite 303",
+    "city": "Fort Worth",
+    "region": "TX",
+    "postal": "76244",
+    "country": "US",
+    "verified": true,
+    "_note": "One directory (Poyst) lists Suite 301. Own site and CareCredit list 303."
+  },
+  "geo": { "lat": 32.9387, "lng": -97.2600, "verified": false, "_note": "Approximate. Confirm from the Google Business Profile pin." },
+  "hours": [
+    { "days": ["Mo", "Tu", "We", "Th", "Fr"], "opens": "10:00", "closes": "18:00" },
+    { "days": ["Sa"], "opens": "10:00", "closes": "14:00" }
+  ],
+  "hoursVerified": true,
+  "timezone": "America/Chicago",
+  "rating": {
+    "value": 5.0,
+    "count": 90,
+    "source": "Google",
+    "via": "https://medspascout.com/clinic/cloud9-med-spa-fort-worth",
+    "verified": false,
+    "_note": "Read from a directory snapshot, not from Google directly. Confirm on the Google Business Profile."
+  },
+  "links": {
+    "instagram": "https://www.instagram.com/cloud9medspadfw/",
+    "yelp": "https://www.yelp.com/biz/cloud-9-med-spa-fort-worth",
+    "google": "https://www.google.com/maps/search/?api=1&query=Cloud9+Med+Spa+11751+Alta+Vista+Rd+Suite+303+Fort+Worth+TX+76244",
+    "googleReviews": "https://www.google.com/maps/search/?api=1&query=Cloud9+Med+Spa+Fort+Worth+TX+76244",
+    "appleMaps": "https://maps.apple.com/?q=Cloud9+Med+Spa&address=11751+Alta+Vista+Rd+Suite+303,Fort+Worth,TX+76244",
+    "mapEmbed": "https://www.google.com/maps?q=11751+Alta+Vista+Rd+Suite+303,+Fort+Worth,+TX+76244&output=embed",
+    "carecredit": "https://www.carecredit.com/doctor-locator/fort-worth-tx/cloud9-med-spa-llc-366dgg/",
+    "press": "https://communityimpact.com/dallas-fort-worth/keller-roanoke-northeast-fort-worth/business/2024/07/03/cloud9-med-spa-now-open-in-north-fort-worth/"
+  },
+  "opened": "2024",
+  "discountPercent": 5
+}

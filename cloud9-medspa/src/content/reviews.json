@@ -1,0 +1,8 @@
+{
+  "_readme": "Real reviews only, word for word (trim with ... only). The research tool could only return short fragments without reviewer names, so these are marked verified: false and appear only in review builds. Replace with full reviews copied from Google (first name + last initial) and set verified: true.",
+  "items": [
+    { "text": "Sarah is so great at recommending the appropriate services to fit your needs", "author": "Google reviewer (name to confirm)", "source": "Google", "url": "https://www.google.com/maps/search/?api=1&query=Cloud9+Med+Spa+Fort+Worth+TX+76244", "verified": false },
+    { "text": "...true professionals who made me feel comfortable right away", "author": "Client testimonial (name to confirm)", "source": "cloudninemedspadfw.com", "url": "https://cloudninemedspadfw.com/", "verified": false },
+    { "text": "...explained to me why it wasn't a good idea for right now", "author": "Poyst reviewer (name to confirm)", "source": "Poyst", "url": "https://www.poyst.com/business/cloud9-med-spa", "verified": false }
+  ]
+}

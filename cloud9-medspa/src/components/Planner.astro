@@ -1,0 +1,111 @@
+---
+import Split from './Split.astro';
+import Icon from './Icon.astro';
+import CallbackForm from './CallbackForm.astro';
+import Art from './Art.astro';
+import { nameOf, t, services, site, price, show } from '../lib/site.js';
+interface Props { lang: 'en' | 'es' }
+const { lang } = Astro.props;
+const s = t(lang);
+const p = s.planner;
+// Hide a concern when the only treatment for it is unverified (production builds).
+const concernOpts = Object.entries(p.concerns).filter(([k]) => k !== 'R' || show(services.items.find((i) => i.id === 'prphair')));
+// Data the browser needs to build the result.
+const data = {
+  services: services.items.filter(show).map((it) => ({ id: it.id, name: nameOf(it, lang), cat: it.cat, downtime: it.downtime, mins: it.mins, price: price(it, s) })),
+  cats: Object.fromEntries(services.categories.map((c) => [c.id, c.art])),
+  s: { ...p, min: s.menu.min, menuCats: s.menu.cats },
+  tel: site.phone.tel,
+};
+---
+<section class="section planner" id="plan" aria-labelledby="plan-h">
+  <div class="wrap planner-grid">
+    <div class="planner-intro">
+      <h2 class="display h-l split" id="plan-h" data-split><Split text={p.h2a} /> <Split text={p.h2b} italic start={3} /></h2>
+      <p class="lede" data-reveal>{p.lede}</p>
+      <div class="code-preview" aria-hidden="true"><span>{p.codeLabel}</span><output data-code-live>C9-</output></div>
+    </div>
+
+    <div class="app" id="planner" data-planner>
+      <script type="application/json" data-planner-data set:html={JSON.stringify(data)}></script>
+      {services.categories.map((c) => <template data-art={c.id}><Art name={c.art as any} /></template>)}
+      <noscript>
+        <p class="lede">{s.form.lede} <a class="link" href={`tel:${site.phone.tel}`}>{site.phone.display}</a></p>
+      </noscript>
+      <div class="app-top">
+        <span class="app-step" data-step-label data-tpl={p.step}>{p.step.replace('{n}', '1')}</span>
+        <button class="btn btn-ghost btn-sm" type="button" data-restart hidden>{p.restart}</button>
+      </div>
+      <div class="app-bar" aria-hidden="true"><i data-bar></i></div>
+
+      <div class="q on" data-q="1">
+        <fieldset>
+          <legend>{p.q1}</legend>
+          <p class="sub">{p.h1}</p>
+          <div class="opts" data-group="concerns" data-multi>
+            {concernOpts.map(([k, v]) => <button type="button" class="opt" aria-pressed="false" data-val={k}><span class="tick" aria-hidden="true"></span>{v}</button>)}
+          </div>
+        </fieldset>
+      </div>
+      <div class="q" data-q="2">
+        <fieldset>
+          <legend>{p.q2}</legend>
+          <p class="sub">{p.h2}</p>
+          <div class="opts" data-group="areas" data-multi>
+            {Object.entries(p.areas).map(([k, v]) => <button type="button" class="opt" aria-pressed="false" data-val={k}><span class="tick" aria-hidden="true"></span>{v}</button>)}
+          </div>
+        </fieldset>
+      </div>
+      <div class="q" data-q="3">
+        <fieldset>
+          <legend>{p.q3}</legend>
+          <div class="opts stack" data-group="downtime" role="radiogroup" aria-label={p.q3}>
+            {Object.entries(p.downtime).map(([k, v]) => <button type="button" class="opt" role="radio" aria-checked="false" data-val={k}><span class="tick" aria-hidden="true"></span>{v}</button>)}
+          </div>
+        </fieldset>
+      </div>
+      <div class="q" data-q="4">
+        <h3>{p.q4}</h3>
+        <fieldset style="margin-top:22px">
+          <legend class="sublegend">{p.q4a}</legend>
+          <div class="opts" data-group="history" role="radiogroup" aria-label={p.q4a}>
+            {Object.entries(p.history).map(([k, v]) => <button type="button" class="opt" role="radio" aria-checked="false" data-val={k}><span class="tick" aria-hidden="true"></span>{v}</button>)}
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend class="sublegend">{p.q4b}</legend>
+          <div class="opts" data-group="timing" role="radiogroup" aria-label={p.q4b}>
+            {Object.entries(p.timing).map(([k, v]) => <button type="button" class="opt" role="radio" aria-checked="false" data-val={k}><span class="tick" aria-hidden="true"></span>{v}</button>)}
+          </div>
+        </fieldset>
+      </div>
+      <p class="app-msg" aria-live="polite" data-msg></p>
+      <div class="app-nav">
+        <button class="btn btn-ghost" type="button" data-back hidden>{p.back}</button>
+        <span></span>
+        <button class="btn" type="button" data-next data-next-label={p.next} data-finish-label={p.finish}>{p.next}<Icon name="arrow" size={18} /></button>
+      </div>
+
+      <div class="result" data-result tabindex="-1" aria-live="polite">
+        <h3>{p.resultH}</h3>
+        <div class="picks" data-picks></div>
+        <div class="club-hint" data-club hidden></div>
+        <div class="notes" data-notes hidden></div>
+        <div class="code-box">
+          <div>
+            <span class="lbl">{p.codeLabel}</span>
+            <div class="code-big" data-code>C9</div>
+            <p>{p.codeHint}</p>
+          </div>
+          <button class="btn btn-sm" type="button" data-copy data-copied={p.copied}><Icon name="copy" size={16} /><span>{p.copy}</span></button>
+        </div>
+        <p class="disc">{p.disclaimer}</p>
+        <div class="form-wrap">
+          <h4>{p.formH}</h4>
+          <CallbackForm lang={lang} kind="plan" id="plan-form" dark />
+        </div>
+        <button class="btn btn-ghost-light btn-sm restart" type="button" data-restart>{p.restart}</button>
+      </div>
+    </div>
+  </div>
+</section>

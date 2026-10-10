@@ -1,0 +1,22 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import { t } from '../lib/site.js';
+const s = t('en');
+const e = t('es');
+---
+<Base lang="en" title="Page not found | Cloud9 Med Spa" noindex>
+  <section class="hero" style="min-height:max(560px,88svh)">
+    <div class="sky" aria-hidden="true"></div>
+    <div class="wrap hero-inner">
+      <h1 class="display h-xl" style="max-width:11ch">{s.notFound.h1}</h1>
+      <div class="hero-foot">
+        <p class="lede">{s.notFound.p} <span lang="es">{e.notFound.p}</span></p>
+        <div class="hero-ctas">
+          <a class="btn" href="/">{s.notFound.home}<Icon name="arrow" size={18} /></a>
+          <a class="btn btn-ghost" href="/es/" lang="es">{e.notFound.home}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

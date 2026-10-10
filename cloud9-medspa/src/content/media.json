@@ -1,0 +1,6 @@
+{
+  "_readme": "Real photos and videos. Drop files in public/media/ and list them here. Empty means the site uses its illustrations. heroVideo: { src: '/media/hero.mp4', poster: '/media/hero.jpg' } (H.264, silent, under 2 MB). testimonials: [{ src, poster, caption: {en, es} }] load only when played.",
+  "heroVideo": null,
+  "testimonials": [],
+  "beforeAfter": []
+}

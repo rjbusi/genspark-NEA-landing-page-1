@@ -1,0 +1,357 @@
+{
+  "lang": "en",
+  "locale": "en-US",
+  "meta": {
+    "title": "Cloud9 Med Spa | Botox, Facials and Laser in North Fort Worth",
+    "description": "Women-owned med spa on Alta Vista Rd, near Keller and Alliance. Botox from $13 a unit, facials, microneedling, laser and medical weight loss. Book a free consult: (972) 897-2355."
+  },
+  "nav": {
+    "skip": "Skip to content",
+    "treatments": "Treatments",
+    "depth": "How it works",
+    "clubs": "Memberships",
+    "plan": "Your plan",
+    "visit": "Visit",
+    "cta": "Free consult",
+    "menu": "Menu",
+    "close": "Close",
+    "langName": "Español",
+    "langShort": "ES",
+    "home": "Cloud9 Med Spa, home"
+  },
+  "hero": {
+    "h1a": "Your skin,",
+    "h1b": "on cloud nine.",
+    "lede": "A women-owned med spa in North Fort Worth. Botox, facials, microneedling, laser and medical weight loss, planned around you in a free consult.",
+    "cta": "Book a free consult",
+    "call": "Call",
+    "skyLabel": "Illustration: slow clouds drifting across a warm evening sky",
+    "scroll": "Scroll",
+    "chips": [
+      "Free consult",
+      "Botox $13 a unit",
+      "Women-owned"
+    ]
+  },
+  "status": {
+    "openNow": "Open now",
+    "closedNow": "Closed now",
+    "until": "until",
+    "opens": "Opens",
+    "at": "at",
+    "today": "today",
+    "tomorrow": "tomorrow"
+  },
+  "intro": {
+    "h2": "Small enough to know you. Skilled enough to be honest.",
+    "body": "Cloud9 is women-owned and women-run, and opened in 2024 on Alta Vista Rd. Every visit starts with a conversation, not a sales sheet. If something isn't right for you yet, we'll say so, and tell you what is.",
+    "facts": [
+      {
+        "k": "Free",
+        "v": "consult before any treatment"
+      },
+      {
+        "k": "$13",
+        "v": "per unit of Botox, counted with you"
+      },
+      {
+        "k": "5%",
+        "v": "off for veterans, first responders, teachers and students"
+      },
+      {
+        "k": "CareCredit",
+        "v": "financing accepted, subject to approval"
+      }
+    ],
+    "window": "Monday to Saturday, North Fort Worth",
+    "windowLabel": "Illustration: the sky through an arched window"
+  },
+  "depth": {
+    "h2a": "How deep",
+    "h2b": "we go.",
+    "lede": "Every concern lives at a different depth. Scroll down through the skin and see what we use at each layer.",
+    "diagramLabel": "Diagram: a cross-section of skin showing the surface, dermis, fat and muscle layers",
+    "layers": {
+      "surface": "Epidermis",
+      "dermis": "Dermis",
+      "volume": "Fat",
+      "muscle": "Muscle",
+      "body": "Whole body"
+    },
+    "stops": [
+      {
+        "id": "surface",
+        "t": "The surface",
+        "p": "Dullness, congestion, breakouts. Facials and peels work on the outermost layer, with nothing to recover from."
+      },
+      {
+        "id": "dermis",
+        "t": "The collagen layer",
+        "p": "Texture, scars, sun spots, fine lines and hair follicles all live here. Microneedling, PRP, light and laser reach it."
+      },
+      {
+        "id": "volume",
+        "t": "Volume",
+        "p": "With time, the soft padding under the skin thins. Fillers restore shape where things have gone flat."
+      },
+      {
+        "id": "muscle",
+        "t": "The muscle",
+        "p": "Expression lines come from movement. Neurotoxins relax the muscle so the skin above it can smooth out."
+      },
+      {
+        "id": "body",
+        "t": "All of you",
+        "p": "Some things start below the skin. Medically supervised weight management and IV hydration look after the rest."
+      }
+    ],
+    "cta": "Not sure where yours lives? Build your plan"
+  },
+  "menu": {
+    "h2": "Treatments, with prices.",
+    "lede": "From our current menu. Your exact plan and total are confirmed at your free consult, before anything happens.",
+    "cats": {
+      "inject": "Injectables",
+      "skin": "Facials",
+      "renew": "Microneedling and PRP",
+      "light": "Light and energy",
+      "hair": "Hair",
+      "well": "Wellness"
+    },
+    "atConsult": "At consult",
+    "perUnit": "/ unit",
+    "perMonth": "/ mo",
+    "to": "to",
+    "min": "min",
+    "artLabel": "Illustration for {cat}",
+    "cta": "Book a free consult",
+    "all": "All"
+  },
+  "clubs": {
+    "h2": "Memberships that earn their keep.",
+    "lede": "Twelve months, one monthly price, and 10% off fillers and other services while you're a member.",
+    "per": "/ month",
+    "featured": "Most chosen for Botox regulars",
+    "mathA": "20 units of Botox on their own:",
+    "mathB": "In the Botox Club, with everything else included:",
+    "cta": "Ask about joining",
+    "terms": "12-month membership. Perks and availability confirmed at your consult."
+  },
+  "planner": {
+    "h2a": "Your Cloud9 plan,",
+    "h2b": "in a minute.",
+    "lede": "Tell us what's on your mind. You'll get a starting plan with prices, and a reference code to read out when you call.",
+    "step": "Step {n} of 4",
+    "q1": "What would you like to change?",
+    "h1": "Pick as many as you like.",
+    "q2": "Where?",
+    "h2": "Optional. Skip it if you're not sure.",
+    "q3": "How much downtime can you take?",
+    "q4": "A little about you",
+    "q4a": "Have you had treatments before?",
+    "q4b": "Any date coming up?",
+    "concerns": {
+      "L": "Lines and wrinkles",
+      "V": "Lost volume or thin lips",
+      "T": "Texture, pores or scars",
+      "S": "Sun spots or redness",
+      "A": "Breakouts",
+      "D": "Dull, tired skin",
+      "H": "Unwanted hair",
+      "R": "Thinning hair",
+      "W": "Weight",
+      "I": "Energy and hydration"
+    },
+    "areas": {
+      "F": "Whole face",
+      "E": "Under-eyes",
+      "P": "Lips",
+      "N": "Neck and chest",
+      "B": "Body"
+    },
+    "downtime": {
+      "0": "None. I have plans tomorrow",
+      "1": "A day or two of pink is fine",
+      "2": "Up to a week"
+    },
+    "history": {
+      "N": "This would be my first time",
+      "R": "Yes, I've had treatments"
+    },
+    "timing": {
+      "X": "No date in mind",
+      "E": "An event in the next 4 weeks",
+      "M": "Something in 1 to 3 months"
+    },
+    "back": "Back",
+    "next": "Next",
+    "finish": "See my plan",
+    "restart": "Start over",
+    "pickOne": "Pick at least one to continue.",
+    "resultH": "Your starting plan",
+    "for": "For",
+    "club": "Worth a look",
+    "notes": "Good to know",
+    "codeLabel": "Your reference code",
+    "codeHint": "Read this out when you call, and we'll see your answers.",
+    "copy": "Copy",
+    "copied": "Copied",
+    "formH": "Want us to call you?",
+    "disclaimer": "This is a starting point, not medical advice. Your provider confirms what's right for you at a free consult.",
+    "noteEventTox": "Botox can take up to two weeks to settle fully, so book soon if you have an event.",
+    "noteEventDown": "Leave at least two weeks between anything with downtime and your event.",
+    "noteWeight": "Weight management starts with a health review with Anju, NP.",
+    "noteFirst": "First time? The New Client Facial is the gentlest way to start.",
+    "noteDowntime0": "We kept your plan to treatments with no downtime.",
+    "clubBotox": "20 units alone would be $260. The club is $199 a month and adds microneedling, a peel, a facial and two IVs.",
+    "clubGlow": "Two laser hair removal sessions plus a dermaplaning facial and a peel, for $129 a month.",
+    "clubLuxe": "A Cloud9 Facial, a TCA peel and IPL or Diamondpolar, plus large-area laser, for $149 a month."
+  },
+  "form": {
+    "h": "Prefer a call back?",
+    "lede": "Leave your number and we'll call you during opening hours.",
+    "first": "First name",
+    "last": "Last name",
+    "phone": "Mobile number",
+    "best": "Best time to call",
+    "times": {
+      "morning": "Morning",
+      "midday": "Midday",
+      "afternoon": "Afternoon",
+      "any": "Any time"
+    },
+    "consent": "I agree that Cloud9 Med Spa may contact me by phone or text about my enquiry. Message and data rates may apply.",
+    "honeypot": "Leave this empty",
+    "submit": "Call me back",
+    "sending": "Sending",
+    "okH": "Thank you, {name}.",
+    "okP": "We'll call you during opening hours. Your reference is {code}.",
+    "errH": "That didn't go through.",
+    "errP": "Something went wrong on our side. Please call us, we'd love to hear from you:",
+    "required": "Please fill this in.",
+    "badPhone": "Please enter a 10-digit US number.",
+    "needConsent": "Please tick the box so we can call you.",
+    "privacy": "We only use your details to reply to you."
+  },
+  "team": {
+    "h2": "The people in the room.",
+    "lede": "A small team, so you see the same faces every time.",
+    "photoSoon": "Portrait coming soon"
+  },
+  "reviews": {
+    "h2": "In their words.",
+    "rating": "{value} on Google from {count} reviews",
+    "read": "Read reviews on Google",
+    "yelp": "See us on Yelp",
+    "insta": "Follow @cloud9medspadfw",
+    "fallback": "Real reviews from real clients live on our Google profile. Read them there, then come and see for yourself."
+  },
+  "visitSteps": {
+    "h2": "Your first visit.",
+    "steps": [
+      {
+        "t": "Book a free consult",
+        "p": "Call, or leave your number. We'll find a time that suits you."
+      },
+      {
+        "t": "Talk it through",
+        "p": "We look at your skin, ask about your health and goals, and give you a plan with prices."
+      },
+      {
+        "t": "Start when you're ready",
+        "p": "Begin your treatment, or take the plan home and think about it. No pressure either way."
+      },
+      {
+        "t": "We follow up",
+        "p": "We check in after your treatment and adjust the plan as your skin changes."
+      }
+    ]
+  },
+  "faq": {
+    "h2": "Questions, answered.",
+    "items": [
+      {
+        "q": "Is the consultation really free?",
+        "a": "Yes. Your consult is free and there's no obligation to book a treatment afterwards."
+      },
+      {
+        "q": "How much does Botox cost?",
+        "a": "$13 per unit. We count your units with you before we start, so the total is clear up front."
+      },
+      {
+        "q": "Who will treat me?",
+        "a": "Sara Aryal, our owner, is a medical aesthetician, certified injector and laser technician with 15 years in the industry. Anju, NP, leads our medical services, including weight management."
+      },
+      {
+        "q": "Do you offer financing?",
+        "a": "Yes. We accept CareCredit, which lets you spread the cost of treatments over time, subject to approval."
+      },
+      {
+        "q": "Do you have discounts?",
+        "a": "Veterans, first responders, teachers and students get an extra 5% off all services. Members also get 10% off fillers and other services."
+      },
+      {
+        "q": "How do memberships work?",
+        "a": "Memberships run for 12 months at one monthly price. Each club bundles treatments you would use anyway, and members get 10% off fillers and other services."
+      },
+      {
+        "q": "Is there downtime?",
+        "a": "Most facials, Botox and laser hair removal have none. Microneedling, IPL and Tribella can leave you pink or speckled for a day or two. We'll tell you exactly what to expect before you book."
+      },
+      {
+        "q": "Is medical weight loss right for me?",
+        "a": "It starts with a health review with Anju, NP. If a medically supervised plan isn't right for you, we'll tell you."
+      },
+      {
+        "q": "Where are you?",
+        "a": "11751 Alta Vista Rd, Suite 303, Fort Worth, TX 76244, in North Fort Worth near Keller. Open Monday to Friday 10am to 6pm and Saturday 10am to 2pm."
+      }
+    ]
+  },
+  "visit": {
+    "h2a": "Visit",
+    "h2b": "Cloud9.",
+    "lede": "North Fort Worth, a few minutes from Keller and Alliance.",
+    "hours": "Hours",
+    "days": {
+      "Mo": "Monday",
+      "Tu": "Tuesday",
+      "We": "Wednesday",
+      "Th": "Thursday",
+      "Fr": "Friday",
+      "Sa": "Saturday",
+      "Su": "Sunday"
+    },
+    "closed": "Closed",
+    "address": "Address",
+    "contact": "Contact",
+    "showMap": "Show the map",
+    "mapNote": "Loads Google Maps",
+    "mapTitle": "Map showing Cloud9 Med Spa on Alta Vista Rd",
+    "mapArt": "Illustration: a stylised map of North Fort Worth with a pin on Alta Vista Rd",
+    "google": "Google Maps",
+    "apple": "Apple Maps"
+  },
+  "footer": {
+    "tag": "A women-owned med spa in North Fort Worth.",
+    "disclaimer": "Results vary from person to person. Every treatment begins with a consultation, and prescription treatments require a medical evaluation. Nothing on this site is medical advice. Botox and Xeomin are registered trademarks of their respective owners.",
+    "rights": "Cloud9 Med Spa. All rights reserved.",
+    "follow": "Instagram",
+    "explore": "Explore",
+    "find": "Find us"
+  },
+  "bar": {
+    "call": "Call",
+    "cta": "Free consult"
+  },
+  "review": {
+    "banner": "Review build: items marked UNVERIFIED and the temporary wordmark need the owner's OK. They are hidden on the live site.",
+    "tag": "Unverified",
+    "logo": "Temporary wordmark. Replace with the original logo file."
+  },
+  "notFound": {
+    "h1": "This page drifted off.",
+    "p": "It may have moved, or never existed. Let's get you back on solid cloud.",
+    "home": "Back to Cloud9"
+  }
+}

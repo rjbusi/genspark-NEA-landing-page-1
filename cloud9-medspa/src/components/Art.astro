@@ -1,0 +1,97 @@
+---
+// Hand-drawn style SVG illustrations, one per treatment family. They stand in
+// for photography until the owner supplies real photos (see content/media.json).
+interface Props { name: 'inject' | 'skin' | 'renew' | 'light' | 'hair' | 'well'; label?: string; class?: string }
+const { name, label, class: cls = '' } = Astro.props;
+const id = `g-${name}-${Math.random().toString(36).slice(2, 7)}`;
+const ink = '#1c2033';
+const ember = '#e27d58';
+---
+<svg class:list={['art', cls]} viewBox="0 0 400 320" preserveAspectRatio="xMidYMid slice" role={label ? 'img' : undefined} aria-label={label} aria-hidden={label ? undefined : 'true'} focusable="false">
+  <defs>
+    <linearGradient id={`${id}-bg`} x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#bccbda" />
+      <stop offset="0.55" stop-color="#e3e3e2" />
+      <stop offset="1" stop-color="#f3dccb" />
+    </linearGradient>
+    <radialGradient id={`${id}-puff`}>
+      <stop offset="0" stop-color="#fff" stop-opacity="0.95" />
+      <stop offset="1" stop-color="#fff" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="400" height="320" fill={`url(#${id}-bg)`} />
+  <ellipse cx="90" cy="250" rx="150" ry="46" fill={`url(#${id}-puff)`} />
+  <ellipse cx="330" cy="70" rx="120" ry="34" fill={`url(#${id}-puff)`} />
+  <g fill="none" stroke={ink} stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    {name === 'inject' && (
+      <>
+        <path d="M140 20 C200 24 226 70 222 110 C230 128 248 148 252 160 C248 168 238 170 232 172 C238 178 242 184 240 190 C234 194 230 196 228 197 C236 200 240 206 236 212 C236 226 232 238 222 244 C205 254 190 262 182 270 L180 320" />
+        <path d="M196 116 C204 112 212 112 218 116" />
+        <path d="M150 150 C 165 170 190 176 205 168" stroke-dasharray="2 7" />
+        <g fill={ember} stroke="none">
+          <circle cx="198" cy="66" r="5" /><circle cx="214" cy="104" r="4.5" /><circle cx="236" cy="191" r="4" /><circle cx="186" cy="160" r="4.5" />
+        </g>
+        <g stroke={ember} stroke-width="1.4" opacity="0.7">
+          <circle cx="198" cy="66" r="12" /><circle cx="236" cy="191" r="10" />
+        </g>
+      </>
+    )}
+    {name === 'skin' && (
+      <>
+        <path d="M200 60 C200 60 160 112 160 138 C160 160 178 176 200 176 C222 176 240 160 240 138 C240 112 200 60 200 60 Z" />
+        <path d="M184 140 C184 150 190 158 199 160" />
+        <ellipse cx="200" cy="246" rx="38" ry="9" />
+        <ellipse cx="200" cy="246" rx="82" ry="20" opacity="0.6" />
+        <ellipse cx="200" cy="246" rx="128" ry="31" opacity="0.32" />
+        <path d="M200 196 L200 222" stroke-dasharray="2 6" />
+        <g stroke={ember}><path d="M286 96 v20 M276 106 h20" /><path d="M112 74 v14 M105 81 h14" /></g>
+      </>
+    )}
+    {name === 'renew' && (
+      <>
+        <path d="M20 214 C110 190 290 190 380 214" />
+        <path d="M20 250 C110 228 290 228 380 250" opacity="0.4" />
+        {Array.from({ length: 6 }).map((_, r) => Array.from({ length: 9 }).map((_, c) => (
+          <circle cx={84 + c * 29 + (r % 2) * 14} cy={64 + r * 20} r="2.6" fill={(r + c) % 5 === 0 ? ember : ink} stroke="none" opacity={1 - r * 0.1} />
+        )))}
+        {Array.from({ length: 9 }).map((_, c) => (
+          <path d={`M${92 + c * 29} 202 v14`} opacity="0.55" />
+        ))}
+      </>
+    )}
+    {name === 'light' && (
+      <>
+        <path d="M168 40 h64 l14 34 h-92 Z" />
+        <path d="M188 40 v-18 h24 v18" />
+        <g stroke={ember} stroke-width="1.8">
+          <path d="M170 90 L120 214" /><path d="M186 90 L168 214" /><path d="M200 90 L200 214" /><path d="M214 90 L232 214" /><path d="M230 90 L280 214" />
+        </g>
+        <path d="M20 226 C110 204 290 204 380 226" />
+        <ellipse cx="200" cy="216" rx="40" ry="7" fill={ember} stroke="none" opacity="0.45" />
+      </>
+    )}
+    {name === 'hair' && (
+      <>
+        <path d="M20 128 C110 112 290 112 380 128" />
+        <path d="M150 248 C134 248 128 232 136 220 C142 210 150 200 152 182 L156 122" />
+        <path d="M168 248 C184 248 190 232 182 220 C176 210 168 200 166 182 L162 122" />
+        <path d="M150 248 C152 238 166 238 168 248" fill={ember} stroke={ember} />
+        <path d="M159 122 C158 90 170 60 200 34" />
+        <path d="M262 224 C252 224 248 214 253 206 C257 199 260 190 261 176 L263 128" opacity="0.6" />
+        <path d="M274 224 C284 224 288 214 283 206 C279 199 276 190 275 176 L273 128" opacity="0.6" />
+        <path d="M268 124 C268 100 280 80 304 64" opacity="0.6" />
+      </>
+    )}
+    {name === 'well' && (
+      <>
+        <rect x="158" y="30" width="84" height="120" rx="24" />
+        <path d="M172 70 h56 M172 92 h40 M172 114 h48" opacity="0.45" />
+        <path d="M200 150 v18" />
+        <rect x="190" y="168" width="20" height="36" rx="7" />
+        <path d="M200 204 C200 240 150 250 140 290" />
+        <path d="M200 182 C200 182 194 190 194 194 C194 197.5 196.7 200 200 200 C203.3 200 206 197.5 206 194 C206 190 200 182 200 182 Z" fill={ember} stroke={ember} />
+        <path d="M282 220 C282 220 270 236 270 244 C270 251 275.4 256 282 256 C288.6 256 294 251 294 244 C294 236 282 220 282 220 Z" stroke={ember} />
+      </>
+    )}
+  </g>
+</svg>

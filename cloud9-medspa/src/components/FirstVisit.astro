@@ -1,0 +1,24 @@
+---
+import Split from './Split.astro';
+import Icon from './Icon.astro';
+import { t } from '../lib/site.js';
+interface Props { lang: 'en' | 'es' }
+const { lang } = Astro.props;
+const s = t(lang);
+const icons = ['phone', 'chat', 'spark', 'check'] as const;
+---
+<section class="section first" id="first-visit" aria-labelledby="fv-h">
+  <div class="wrap">
+    <h2 class="display h-l split steps-head" id="fv-h" data-split><Split text={s.visitSteps.h2} /></h2>
+    <ol class="timeline" role="list" data-timeline>
+      <span class="track" aria-hidden="true"><i></i></span>
+      {s.visitSteps.steps.map((st, i) => (
+        <li class="tstep" data-reveal style={`--d:${i * 160}ms`}>
+          <span class="ico" aria-hidden="true"><Icon name={icons[i]} size={28} /></span>
+          <h3>{st.t}</h3>
+          <p>{st.p}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

@@ -1,0 +1,79 @@
+---
+import Split from './Split.astro';
+import Icon from './Icon.astro';
+import CallbackForm from './CallbackForm.astro';
+import { t, site, DAY_KEYS, hoursFor, fmtTime } from '../lib/site.js';
+interface Props { lang: 'en' | 'es' }
+const { lang } = Astro.props;
+const s = t(lang);
+const rows = DAY_KEYS.map((d) => {
+  const h = hoursFor(d);
+  return { d, label: s.visit.days[d as keyof typeof s.visit.days], text: h ? `${fmtTime(h.opens, lang)} ${lang === 'en' ? 'to' : 'a'} ${fmtTime(h.closes, lang)}` : s.visit.closed };
+});
+---
+<section class="section visit" id="visit" aria-labelledby="visit-h">
+  <div class="wrap">
+    <div class="visit-head">
+      <h2 class="display h-l split" id="visit-h" data-split><Split text={s.visit.h2a} /> <Split text={s.visit.h2b} italic start={1} /></h2>
+      <p class="lede" data-reveal>{s.visit.lede}</p>
+    </div>
+    <div class="visit-grid">
+      <div class="mapcard" data-map={site.links.mapEmbed} data-map-title={s.visit.mapTitle} data-unmask>
+        <svg class="map" viewBox="0 0 700 460" preserveAspectRatio="xMidYMid slice" role="img" aria-label={s.visit.mapArt}>
+          <rect width="700" height="460" fill="#dfe6ec" />
+          <g fill="#d2ddd0"><path d="M0 0 H220 C200 80 120 120 0 130 Z" /><path d="M520 300 C580 280 650 300 700 330 V460 H470 C480 400 490 330 520 300 Z" /><ellipse cx="560" cy="90" rx="90" ry="50" /></g>
+          <path d="M600 60 C 590 80 560 100 520 104" stroke="#b9cfe0" stroke-width="10" fill="none" stroke-linecap="round" />
+          <g fill="none" stroke="#fffdfa" stroke-linecap="round">
+            <path d="M-20 180 C 160 170 420 190 720 160" stroke-width="22" />
+            <path d="M330 -20 C 340 120 350 320 340 480" stroke-width="16" />
+            <path d="M-20 360 C 200 350 450 380 720 350" stroke-width="12" />
+            <path d="M120 -20 C 130 140 110 320 140 480" stroke-width="10" />
+            <path d="M540 -20 C 520 120 560 300 540 480" stroke-width="10" />
+            <path d="M340 260 H 470 V 330" stroke-width="7" />
+            <path d="M200 250 H 330" stroke-width="7" />
+          </g>
+          <text x="352" y="62" font-family="Hanken Grotesk Variable, sans-serif" font-size="13" font-weight="600" fill="#4a4f66" letter-spacing="1.5" transform="rotate(88 352 62)">ALTA VISTA RD</text>
+          <g transform="translate(345 225)">
+            <ellipse cx="0" cy="44" rx="22" ry="6" fill="#1c2033" opacity="0.18" />
+            <path d="M0 42 C -6 30 -26 14 -26 -6 A26 26 0 0 1 26 -6 C26 14 6 30 0 42 Z" fill="#1c2033" />
+            <circle cx="0" cy="-6" r="10" fill="#e27d58" />
+          </g>
+          <g transform="translate(380 196)">
+            <rect x="0" y="0" width="128" height="40" rx="20" fill="#fffdfa" />
+            <text x="64" y="26" text-anchor="middle" font-family="Instrument Serif, serif" font-size="22" fill="#1c2033">Cloud9</text>
+          </g>
+        </svg>
+        <div class="map-actions">
+          <button class="btn btn-sm load" type="button" data-load-map>{s.visit.showMap}</button>
+          <a class="btn btn-sm btn-light" href={site.links.google} target="_blank" rel="noopener"><Icon name="pin" size={16} />{s.visit.google}</a>
+          <a class="btn btn-sm btn-light" href={site.links.appleMaps} target="_blank" rel="noopener">{s.visit.apple}</a>
+        </div>
+      </div>
+      <div class="info">
+        <div class="panel">
+          <h3>{s.visit.hours}</h3>
+          <dl class="hours" data-hours-table>
+            {rows.map((r) => <div data-day={r.d}><dt>{r.label}</dt><dd>{r.text}</dd></div>)}
+          </dl>
+          <p class="open-status" data-open-status hidden><span class="dot" aria-hidden="true"></span><span class="txt"></span></p>
+        </div>
+        <div class="panel">
+          <h3>{s.visit.address}</h3>
+          <address class="addr">{site.address.street}<br />{site.address.city}, {site.address.region} {site.address.postal}</address>
+          <h3 style="margin-top:22px">{s.visit.contact}</h3>
+          <div class="contact-lines">
+            <a class="tel-big" href={`tel:${site.phone.tel}`}>{site.phone.display}</a>
+            <a class="link" href={`mailto:${site.email.value}`}>{site.email.value}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="callback" id="book">
+      <div>
+        <h3>{s.form.h}</h3>
+        <p class="muted" style="margin-top:14px">{s.form.lede}</p>
+      </div>
+      <CallbackForm lang={lang} kind="callback" id="callback-form" />
+    </div>
+  </div>
+</section>

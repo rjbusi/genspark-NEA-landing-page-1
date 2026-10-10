@@ -1,0 +1,183 @@
+---
+import '../styles/global.css';
+import Wordmark from '../components/Wordmark.astro';
+import Icon from '../components/Icon.astro';
+import { site, t, PATHS, REVIEW, show, DAY_KEYS } from '../lib/site.js';
+
+interface Props { lang: 'en' | 'es'; title?: string; description?: string; noindex?: boolean; schema?: object[]; bare?: boolean }
+const { lang, title, description, noindex = false, schema = [], bare = false } = Astro.props;
+const s = t(lang);
+const other = lang === 'en' ? 'es' : 'en';
+const base = (process.env.SITE_URL || site.url).replace(/\/$/, '');
+const path = Astro.url.pathname;
+const canonical = base + path;
+const pageTitle = title || s.meta.title;
+const pageDesc = description || s.meta.description;
+const robots = REVIEW || noindex ? 'noindex, nofollow' : 'index, follow';
+const home = PATHS[lang];
+const a = (id: string) => `${home}#${id}`;
+
+const dayMap: Record<string, string> = { Mo: 'Monday', Tu: 'Tuesday', We: 'Wednesday', Th: 'Thursday', Fr: 'Friday', Sa: 'Saturday', Su: 'Sunday' };
+const business: any = {
+  '@context': 'https://schema.org',
+  '@type': ['MedicalBusiness', 'DaySpa'],
+  '@id': `${base}/#business`,
+  name: site.name,
+  url: base + '/',
+  image: `${base}/og.jpg`,
+  logo: `${base}/favicon.svg`,
+  telephone: site.phone.tel,
+  email: site.email.value,
+  priceRange: '$$',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: site.address.street,
+    addressLocality: site.address.city,
+    addressRegion: site.address.region,
+    postalCode: site.address.postal,
+    addressCountry: site.address.country,
+  },
+  openingHoursSpecification: site.hours.map((h) => ({
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: h.days.map((d) => `https://schema.org/${dayMap[d]}`),
+    opens: h.opens,
+    closes: h.closes,
+  })),
+  areaServed: ['Fort Worth', 'Keller', 'Alliance', 'Haslet', 'Watauga', 'North Richland Hills'].map((n) => ({ '@type': 'City', name: n })),
+  sameAs: [site.links.instagram, site.links.yelp],
+  paymentAccepted: 'Cash, Credit Card, CareCredit',
+  knowsLanguage: ['en'],
+};
+// Unverified facts never reach production schema.
+if (site.geo.verified) business.geo = { '@type': 'GeoCoordinates', latitude: site.geo.lat, longitude: site.geo.lng };
+if (site.rating.verified) business.aggregateRating = { '@type': 'AggregateRating', ratingValue: site.rating.value, reviewCount: site.rating.count };
+const schemas = [business, ...schema];
+---
+<!doctype html>
+<html lang={s.locale} class:list={[REVIEW && 'has-banner']}>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>{pageTitle}</title>
+  <meta name="description" content={pageDesc} />
+  <meta name="robots" content={robots} />
+  <link rel="canonical" href={canonical} />
+  {!bare && <>
+    <link rel="alternate" hreflang="en-US" href={base + PATHS.en} />
+    <link rel="alternate" hreflang="es-US" href={base + PATHS.es} />
+    <link rel="alternate" hreflang="x-default" href={base + PATHS.en} />
+  </>}
+  <meta name="theme-color" content="#f7f3ee" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon.png" type="image/png" sizes="64x64" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content={site.name} />
+  <meta property="og:title" content={pageTitle} />
+  <meta property="og:description" content={pageDesc} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={`${base}/og.jpg`} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content={lang === 'en' ? 'en_US' : 'es_US'} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script is:inline>document.documentElement.classList.add('js');</script>
+  {!bare && schemas.map((sc) => <script type="application/ld+json" set:html={JSON.stringify(sc)} />)}
+</head>
+<body data-lang={lang} data-tel={site.phone.tel} data-phone={site.phone.display}>
+  <a class="skip" href="#main">{s.nav.skip}</a>
+  <script type="application/json" id="i18n" set:html={JSON.stringify({ lang, status: s.status, days: s.visit.days })}></script>
+  <div class="progress" aria-hidden="true"></div>
+  {REVIEW && <aside class="review-banner" id="review-banner" aria-label="Review build">{s.review.banner}</aside>}
+  {!bare && (
+    <header class="header" id="header">
+      <div class="wrap">
+        <a class="brand" href={home} aria-label={s.nav.home}><Wordmark /></a>
+        <nav class="nav-links" aria-label="Primary">
+          <a href={a('treatments')}>{s.nav.treatments}</a>
+          <a href={a('depth')}>{s.nav.depth}</a>
+          <a href={a('memberships')}>{s.nav.clubs}</a>
+          <a href={a('plan')}>{s.nav.plan}</a>
+          <a href={a('visit')}>{s.nav.visit}</a>
+        </nav>
+        <a class="lang" href={PATHS[other]} hreflang={other} lang={other} aria-label={s.nav.langName}>{s.nav.langShort}</a>
+        <a class="btn btn-sm btn-cta" href={a('book')} data-cta="nav">{s.nav.cta}<Icon name="arrow" size={18} /></a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="sheet"><span class="bars" aria-hidden="true"></span><span class="menu-label" data-open={s.nav.menu} data-close={s.nav.close}>{s.nav.menu}</span></button>
+      </div>
+    </header>
+    <div class="sheet" id="sheet" aria-label={s.nav.menu}>
+      <a class="big" href={a('treatments')}>{s.nav.treatments}</a>
+      <a class="big" href={a('depth')}>{s.nav.depth}</a>
+      <a class="big" href={a('memberships')}>{s.nav.clubs}</a>
+      <a class="big" href={a('plan')}><em>{s.nav.plan}</em></a>
+      <a class="big" href={a('visit')}>{s.nav.visit}</a>
+      <div class="sheet-foot">
+        <a class="btn btn-block" href={a('book')} data-cta="sheet">{s.hero.cta}<Icon name="arrow" size={18} /></a>
+        <a class="btn btn-ghost btn-block" href={`tel:${site.phone.tel}`}><Icon name="phone" size={18} />{site.phone.display}</a>
+        <a class="btn btn-ghost btn-block" href={PATHS[other]} hreflang={other} lang={other}>{s.nav.langName}</a>
+      </div>
+    </div>
+  )}
+
+  <main id="main" tabindex="-1">
+    <slot />
+  </main>
+
+  {!bare && (
+    <footer class="footer" id="footer">
+      <div class="wrap">
+        <div class="footer-cta">
+          <h2 class="display h-l">{lang === 'en' ? <>Come float <em>a while.</em></> : <>Ven a flotar <em>un rato.</em></>}</h2>
+          <div class="hero-ctas">
+            <a class="btn btn-light" href={a('book')} data-cta="footer">{s.hero.cta}<Icon name="arrow" size={18} /></a>
+            <a class="btn btn-ghost-light" href={`tel:${site.phone.tel}`}><Icon name="phone" size={18} />{site.phone.display}</a>
+          </div>
+        </div>
+        <div class="footer-cols">
+          <div>
+            <p style="max-width:32ch">{s.footer.tag}</p>
+            <p style="margin-top:14px;color:var(--night-soft)">{site.address.street}<br />{site.address.city}, {site.address.region} {site.address.postal}</p>
+          </div>
+          <nav aria-label={s.footer.explore}>
+            <h3>{s.footer.explore}</h3>
+            <ul role="list">
+              <li><a href={a('treatments')}>{s.nav.treatments}</a></li>
+              <li><a href={a('memberships')}>{s.nav.clubs}</a></li>
+              <li><a href={a('plan')}>{s.nav.plan}</a></li>
+              <li><a href={a('faq')}>FAQ</a></li>
+            </ul>
+          </nav>
+          <div>
+            <h3>{s.footer.find}</h3>
+            <ul role="list">
+              <li><a href={`tel:${site.phone.tel}`}>{site.phone.display}</a></li>
+              <li><a href={`mailto:${site.email.value}`}>{site.email.value}</a></li>
+              <li><a href={site.links.google} target="_blank" rel="noopener">{s.visit.google}</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3>{s.footer.follow}</h3>
+            <ul role="list">
+              <li><a href={site.links.instagram} target="_blank" rel="noopener">@cloud9medspadfw</a></li>
+              <li><a href={site.links.yelp} target="_blank" rel="noopener">Yelp</a></li>
+              <li><a href={PATHS[other]} hreflang={other} lang={other}>{s.nav.langName}</a></li>
+            </ul>
+          </div>
+        </div>
+        <p class="giant" aria-hidden="true">Cloud<em>9</em></p>
+        <div class="fine">
+          <p>{s.footer.disclaimer}</p>
+          <p>© {new Date().getFullYear()} {s.footer.rights}</p>
+        </div>
+      </div>
+    </footer>
+    <nav class="mbar" id="mbar" aria-label={s.bar.cta}>
+      <a class="btn btn-ghost" href={`tel:${site.phone.tel}`} data-cta="bar-call"><Icon name="phone" size={18} />{s.bar.call}</a>
+      <a class="btn" href={a('book')} data-cta="bar">{s.bar.cta}<Icon name="arrow" size={18} /></a>
+    </nav>
+  )}
+  <script>
+    import '../scripts/main.js';
+  </script>
+</body>
+</html>
