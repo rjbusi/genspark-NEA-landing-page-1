@@ -1,0 +1,21 @@
+{
+  "name": "cloud9-medspa",
+  "type": "module",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "node scripts/serve.mjs",
+    "qa": "node tests/qa.mjs"
+  },
+  "dependencies": {
+    "@fontsource-variable/hanken-grotesk": "5.3.0",
+    "@fontsource/instrument-serif": "5.3.0",
+    "astro": "5.18.2"
+  },
+  "devDependencies": {
+    "axe-core": "4.10.3",
+    "playwright": "1.56.1"
+  }
+}

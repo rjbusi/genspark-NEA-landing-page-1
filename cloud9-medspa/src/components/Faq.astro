@@ -1,0 +1,24 @@
+---
+import Split from './Split.astro';
+import Icon from './Icon.astro';
+import { t, site } from '../lib/site.js';
+interface Props { lang: 'en' | 'es' }
+const { lang } = Astro.props;
+const s = t(lang);
+---
+<section class="section faq" id="faq" aria-labelledby="faq-h">
+  <div class="wrap faq-grid">
+    <div class="faq-side">
+      <h2 class="display h-l split" id="faq-h" data-split><Split text={s.faq.h2} /></h2>
+      <p data-reveal><a class="btn btn-ghost" href={`tel:${site.phone.tel}`}><Icon name="phone" size={18} />{site.phone.display}</a></p>
+    </div>
+    <div class="faq-list">
+      {s.faq.items.map((f, i) => (
+        <details name="faq" open={i === 0}>
+          <summary>{f.q}<span class="pm" aria-hidden="true"></span></summary>
+          <div class="ans"><p>{f.a}</p></div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

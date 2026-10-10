@@ -1,0 +1,40 @@
+---
+import Split from './Split.astro';
+import Icon from './Icon.astro';
+import Flag from './Flag.astro';
+import { t, site, reviews, show, fill } from '../lib/site.js';
+interface Props { lang: 'en' | 'es' }
+const { lang } = Astro.props;
+const s = t(lang);
+const items = reviews.items.filter(show);
+const rating = show(site.rating) ? site.rating : null;
+---
+<section class="section reviews" id="reviews" aria-labelledby="rev-h">
+  <div class="wrap reviews-grid">
+    <div class="rating-card">
+      <h2 class="display h-m split" id="rev-h" data-split><Split text={s.reviews.h2} /></h2>
+      {rating && (
+        <>
+          <div class="stars" aria-hidden="true">{Array.from({ length: 5 }).map(() => <Icon name="star" size={22} />)}</div>
+          <p class="rating-num">{rating.value.toFixed(1)}</p>
+          <p>{fill(s.reviews.rating, { value: rating.value.toFixed(1), count: rating.count })}<Flag show={site.rating.verified === false} label={s.review.tag} note="Read from MedSpa Scout, not Google directly." /></p>
+        </>
+      )}
+      <div class="rating-links">
+        <a class="btn btn-sm" href={site.links.googleReviews} target="_blank" rel="noopener">{s.reviews.read}<Icon name="arrow" size={16} /></a>
+        <a class="link" href={site.links.yelp} target="_blank" rel="noopener">{s.reviews.yelp}</a>
+        <a class="link" href={site.links.instagram} target="_blank" rel="noopener">{s.reviews.insta}</a>
+      </div>
+    </div>
+    <div class="quotes">
+      {items.length
+        ? items.map((r) => (
+            <figure class="quote" data-reveal>
+              <blockquote lang="en"><p>{r.text}</p></blockquote>
+              <figcaption>{r.author}, <a class="link" href={r.url} target="_blank" rel="noopener">{r.source}</a>{r.verified === false && <Flag label={s.review.tag} note="Fragment from a search summary. Replace with the full review." />}</figcaption>
+            </figure>
+          ))
+        : <p class="reviews-fallback" data-reveal>{s.reviews.fallback}</p>}
+    </div>
+  </div>
+</section>

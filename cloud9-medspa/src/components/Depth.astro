@@ -1,0 +1,104 @@
+---
+import Split from './Split.astro';
+import Icon from './Icon.astro';
+import { nameOf, t, services, price, show } from '../lib/site.js';
+interface Props { lang: 'en' | 'es' }
+const { lang } = Astro.props;
+const s = t(lang);
+const W = 520;
+function wave(y: number, amp: number, phase: number, dir = 1) {
+  const pts: string[] = [];
+  const n = 14;
+  for (let i = 0; i <= n; i++) {
+    const x = dir === 1 ? (W / n) * i : W - (W / n) * i;
+    const yy = y + Math.sin((x / W) * Math.PI * 2.4 + phase) * amp;
+    pts.push(`${x.toFixed(1)},${yy.toFixed(1)}`);
+  }
+  return pts;
+}
+function band(y1: number, y2: number, a1: number, a2: number, p1: number, p2: number) {
+  const top = wave(y1, a1, p1, 1);
+  const bot = wave(y2, a2, p2, -1);
+  return `M${top.join(' L')} L${bot.join(' L')} Z`;
+}
+const bands = {
+  surface: band(36, 96, 6, 5, 0.3, 0.9),
+  dermis: band(96, 300, 5, 8, 0.9, 1.6),
+  volume: band(300, 410, 8, 7, 1.6, 2.4),
+  muscle: band(410, 550, 7, 6, 2.4, 3.1),
+};
+const fibres = Array.from({ length: 7 }, (_, i) => wave(130 + i * 22, 4, i * 0.8).join(' L'));
+const cells = [] as { x: number; y: number; r: number }[];
+for (let r = 0; r < 3; r++) for (let c = 0; c < 9; c++) cells.push({ x: 30 + c * 58 + (r % 2) * 28, y: 330 + r * 30, r: 15 + ((r * 3 + c) % 3) * 2 });
+const striae = Array.from({ length: 6 }, (_, i) => wave(430 + i * 20, 3, i * 0.5 + 2).join(' L'));
+const groups = Object.fromEntries(s.depth.stops.map((st) => [st.id, services.items.filter((it) => it.depth === st.id && show(it))]));
+const probeY = { surface: 68, dermis: 198, volume: 356, muscle: 480, body: 612 };
+---
+<section class="section depth" id="depth" aria-labelledby="depth-h" data-depth-section>
+  <div class="wrap">
+    <div class="depth-head">
+      <h2 class="display h-l split" id="depth-h" data-split><Split text={s.depth.h2a} /> <Split text={s.depth.h2b} italic start={3} /></h2>
+      <p class="lede" data-reveal>{s.depth.lede}</p>
+    </div>
+    <div class="depth-body">
+      <div class="depth-sticky">
+        <svg class="skin" viewBox="0 0 520 680" preserveAspectRatio="xMidYMid meet" role="img" aria-label={s.depth.diagramLabel}>
+          <defs>
+            <linearGradient id="beam" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#ffd9c4" stop-opacity="0.95" />
+              <stop offset="1" stop-color="#e27d58" stop-opacity="0.15" />
+            </linearGradient>
+            <radialGradient id="glow"><stop offset="0" stop-color="#e27d58" stop-opacity="0.55" /><stop offset="1" stop-color="#e27d58" stop-opacity="0" /></radialGradient>
+            <radialGradient id="probe"><stop offset="0" stop-color="#fff" /><stop offset="0.45" stop-color="#ffe2d3" stop-opacity="0.9" /><stop offset="1" stop-color="#e27d58" stop-opacity="0" /></radialGradient>
+          </defs>
+          <g class="layer body"><ellipse class="body-glow" cx="260" cy="615" rx="250" ry="60" fill="url(#glow)" /><path d="M20 600 C140 580 380 580 500 600" stroke="#b9bccb" stroke-opacity="0.35" fill="none" stroke-dasharray="3 8" /></g>
+          <g class="layer muscle">
+            <path d={bands.muscle} fill="#a9534f" />
+            {striae.map((d) => <path d={`M${d}`} fill="none" stroke="#7e3633" stroke-width="2" opacity="0.7" />)}
+          </g>
+          <g class="layer volume">
+            <path d={bands.volume} fill="#e7c78f" />
+            {cells.map((c) => <circle cx={c.x} cy={c.y} r={c.r} fill="#f3dcae" stroke="#c9a565" stroke-width="1.5" />)}
+          </g>
+          <g class="layer dermis">
+            <path d={bands.dermis} fill="#e2a79c" />
+            {fibres.map((d) => <path d={`M${d}`} fill="none" stroke="#c4776c" stroke-width="1.6" opacity="0.65" />)}
+            <path d="M330 98 L334 240 C318 246 316 266 334 270 C352 270 352 246 338 240 L342 98" fill="#f0c9b4" stroke="#9c5a50" stroke-width="1.6" />
+            <path d="M338 98 C338 70 350 44 372 22" fill="none" stroke="#3a2a2a" stroke-width="2.2" stroke-linecap="round" />
+            <path d="M430 98 L433 210 C421 215 419 232 433 235 C447 235 447 215 436 210 L439 98" fill="#f0c9b4" stroke="#9c5a50" stroke-width="1.6" />
+            <path d="M436 98 C436 76 444 58 460 42" fill="none" stroke="#3a2a2a" stroke-width="2" stroke-linecap="round" />
+            <path d="M40 270 C90 250 120 290 170 268" fill="none" stroke="#b44c47" stroke-width="3" opacity="0.6" />
+          </g>
+          <g class="layer surface">
+            <path d={bands.surface} fill="#f6d9c8" />
+            <path d={`M${wave(36, 6, 0.3).join(' L')}`} fill="none" stroke="#fff" stroke-width="2" opacity="0.8" />
+          </g>
+          <g class="labels">
+            <text class="lbl surface" x="500" y="74" text-anchor="end">{s.depth.layers.surface}</text>
+            <text class="lbl dermis" x="500" y="290" text-anchor="end">{s.depth.layers.dermis}</text>
+            <text class="lbl volume" x="500" y="398" text-anchor="end">{s.depth.layers.volume}</text>
+            <text class="lbl muscle" x="500" y="540" text-anchor="end">{s.depth.layers.muscle}</text>
+            <text class="lbl body" x="500" y="662" text-anchor="end">{s.depth.layers.body}</text>
+          </g>
+          <rect class="beam" x="146" y="20" width="8" height="640" rx="4" fill="url(#beam)" />
+          <g class="probe"><circle cx="150" cy="0" r="30" fill="url(#probe)" /><circle cx="150" cy="0" r="6" fill="#fff" /></g>
+        </svg>
+      </div>
+      <div class="stops">
+        {s.depth.stops.map((st) => (
+          <article class="stop" data-stop={st.id} id={`depth-${st.id}`}>
+            <h3 data-reveal>{st.t}</h3>
+            <span class="layer-name" data-reveal>{s.depth.layers[st.id as keyof typeof s.depth.layers]}</span>
+            <p data-reveal>{st.p}</p>
+            <ul role="list" data-reveal>
+              {groups[st.id].map((it) => <li>{nameOf(it, lang)} <span>{price(it, s)}</span></li>)}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </div>
+    <div class="depth-cta">
+      <a class="btn btn-light" href="#plan" data-cta="depth">{s.depth.cta}<Icon name="arrow" size={18} /></a>
+    </div>
+  </div>
+</section>

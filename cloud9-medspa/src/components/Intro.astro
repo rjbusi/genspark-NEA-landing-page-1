@@ -1,0 +1,27 @@
+---
+import Split from './Split.astro';
+import { t } from '../lib/site.js';
+interface Props { lang: 'en' | 'es' }
+const { lang } = Astro.props;
+const s = t(lang);
+---
+<section class="section intro" id="about" aria-labelledby="intro-h">
+  <div class="wrap intro-grid">
+    <div class="intro-copy">
+      <h2 class="display h-m split" id="intro-h" data-split><Split text={s.intro.h2} /></h2>
+      <p class="body" data-reveal>{s.intro.body}</p>
+      <dl class="facts">
+        {s.intro.facts.map((f, i) => (
+          <div data-reveal style={`--d:${i * 90}ms`}><dt>{f.k}</dt><dd>{f.v}</dd></div>
+        ))}
+      </dl>
+    </div>
+    <figure class="window" data-reveal>
+      <div class="window-frame" role="img" aria-label={s.intro.windowLabel} data-unmask>
+        <span class="puff p4"></span><span class="puff p2"></span><span class="sun"></span><span class="puff p1"></span><span class="puff p3"></span>
+        <span class="mullion"></span>
+      </div>
+      <figcaption><span class="dot" aria-hidden="true"></span>{s.intro.window}</figcaption>
+    </figure>
+  </div>
+</section>

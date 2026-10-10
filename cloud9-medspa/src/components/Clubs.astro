@@ -1,0 +1,50 @@
+---
+import Split from './Split.astro';
+import Art from './Art.astro';
+import Icon from './Icon.astro';
+import Flag from './Flag.astro';
+import { t, memberships, services } from '../lib/site.js';
+interface Props { lang: 'en' | 'es' }
+const { lang } = Astro.props;
+const s = t(lang);
+const [feature, ...rest] = memberships.clubs;
+const unit = services.items.find((i) => i.id === 'botox')!.price as number;
+const alone = unit * 20;
+const art: Record<string, any> = { botox: 'inject', luxe: 'light', glow: 'skin' };
+---
+<section class="section clubs" id="memberships" aria-labelledby="clubs-h">
+  <div class="wrap">
+    <div class="clubs-head">
+      <h2 class="display h-l split" id="clubs-h" data-split><Split text={s.clubs.h2} /></h2>
+      <p class="lede" data-reveal>{s.clubs.lede}<Flag show={memberships.verified === false} label={s.review.tag} note="Confirm which perks are monthly vs per term." /></p>
+    </div>
+    <div class="clubs-grid">
+      <article class="club club-feature" data-reveal>
+        <span class="art-bg"><Art name="inject" /></span>
+        <span class="tag"><Icon name="star" size={14} />{s.clubs.featured}</span>
+        <h3>{feature.name}</h3>
+        <p class="price"><strong>${feature.price}</strong><span>{s.clubs.per}</span></p>
+        <ul role="list">{feature[lang].map((li: string) => <li>{li}</li>)}</ul>
+        <div class="math">
+          <div><span>{s.clubs.mathA}</span><s>${alone}</s></div>
+          <div><span>{s.clubs.mathB}</span><b>${feature.price}</b></div>
+        </div>
+        <div class="cta-row"><a class="btn btn-light" href="#book" data-cta="club-botox">{s.clubs.cta}<Icon name="arrow" size={18} /></a></div>
+      </article>
+      <div class="club-stack">
+        {rest.map((c, i) => (
+          <article class="club club-small" data-reveal style={`--d:${(i + 1) * 120}ms`}>
+            <span class="mini"><Art name={art[c.id]} /></span>
+            <div>
+              <h3>{c.name}</h3>
+              <p class="price"><strong>${c.price}</strong><span>{s.clubs.per}</span></p>
+              <ul role="list">{c[lang].map((li: string) => <li>{li}</li>)}</ul>
+            </div>
+          </article>
+        ))}
+        <a class="btn btn-ghost" href="#book" data-cta="clubs">{s.clubs.cta}<Icon name="arrow" size={18} /></a>
+      </div>
+    </div>
+    <p class="clubs-terms">{s.clubs.terms}</p>
+  </div>
+</section>

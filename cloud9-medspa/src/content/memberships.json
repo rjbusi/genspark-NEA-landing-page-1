@@ -1,0 +1,17 @@
+{
+  "_readme": "Memberships from the old homepage. 12-month commitment. Confirm which perks are monthly and which are per term before launch (verified: false shows a review-only flag).",
+  "commitmentMonths": 12,
+  "vipPerkPercent": 10,
+  "verified": false,
+  "clubs": [
+    { "id": "botox", "name": "Botox Club", "price": 199, "featured": true,
+      "en": ["20 units of Botox every month", "Microneedling, face and neck", "Perfect Derma Peel", "Beyond Botox Facial", "2 IV hydrations"],
+      "es": ["20 unidades de Botox cada mes", "Microagujas en rostro y cuello", "Perfect Derma Peel", "Beyond Botox Facial", "2 hidrataciones IV"] },
+    { "id": "luxe", "name": "Luxe Club", "price": 149, "featured": false,
+      "en": ["Cloud9 Facial", "TCA peel", "Face and neck IPL or Diamondpolar", "1 large-area laser hair removal"],
+      "es": ["Cloud9 Facial", "Peeling TCA", "IPL o Diamondpolar en rostro y cuello", "1 depilación láser de zona grande"] },
+    { "id": "glow", "name": "Glow Club", "price": 129, "featured": false,
+      "en": ["Dermaplaning facial", "IPL on hands and chest", "SkinCeuticals micro peel", "2 medium-area laser hair removals"],
+      "es": ["Facial con dermaplaning", "IPL en manos y pecho", "Micro peeling SkinCeuticals", "2 depilaciones láser de zona mediana"] }
+  ]
+}

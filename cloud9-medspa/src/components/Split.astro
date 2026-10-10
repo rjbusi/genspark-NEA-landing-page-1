@@ -1,0 +1,8 @@
+---
+// Renders text with each word wrapped for the word-by-word reveal. Words stay
+// real text, so screen readers and no-JS visitors read the heading normally.
+interface Props { text: string; italic?: boolean; start?: number; class?: string }
+const { text, italic = false, start = 0, class: cls = '' } = Astro.props;
+const words = text.split(' ');
+---
+<span class:list={[cls]}>{words.map((w, i) => (<><span class="w"><span style={`--i:${start + i}`}>{italic ? <em>{w}</em> : w}</span></span>{i < words.length - 1 ? ' ' : ''}</>))}</span>

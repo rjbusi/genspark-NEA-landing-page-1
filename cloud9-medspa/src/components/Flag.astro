@@ -1,0 +1,6 @@
+---
+import { REVIEW } from '../lib/site.js';
+interface Props { show?: boolean; label: string; note?: string }
+const { show = true, label, note } = Astro.props;
+---
+{REVIEW && show && <span class="flag" title={note}>{label}</span>}

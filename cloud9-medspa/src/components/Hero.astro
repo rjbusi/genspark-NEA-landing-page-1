@@ -1,0 +1,32 @@
+---
+import Split from './Split.astro';
+import Icon from './Icon.astro';
+import { t, site, media } from '../lib/site.js';
+interface Props { lang: 'en' | 'es' }
+const { lang } = Astro.props;
+const s = t(lang);
+---
+<section class="hero" id="top" aria-labelledby="hero-h">
+  {media.heroVideo
+    ? <video class="sky" autoplay muted loop playsinline poster={media.heroVideo.poster} preload="metadata" aria-hidden="true"><source src={media.heroVideo.src} type="video/mp4" /></video>
+    : <canvas class="sky" id="sky" role="img" aria-label={s.hero.skyLabel}></canvas>}
+  <div class="wrap hero-inner">
+    <div class="hero-top" data-reveal>
+      <span class="chip" id="open-chip" data-hours={JSON.stringify(site.hours)} data-tz={site.timezone}><span class="dot" aria-hidden="true"></span><span class="txt">{s.hero.chips[0]}</span></span>
+      <span class="chip">{s.hero.chips[1]}</span>
+      <span class="chip">{s.hero.chips[2]}</span>
+    </div>
+    <h1 class="display h-xl split" id="hero-h" data-split>
+      <Split text={s.hero.h1a} />
+      <span class="l2"><Split text={s.hero.h1b} italic start={2} /></span>
+    </h1>
+    <div class="hero-foot">
+      <p class="lede" data-reveal style="--d:300ms">{s.hero.lede}</p>
+      <div class="hero-ctas" data-reveal style="--d:420ms">
+        <a class="btn" href="#book" data-cta="hero">{s.hero.cta}<Icon name="arrow" size={18} /></a>
+        <a class="btn btn-ghost" href={`tel:${site.phone.tel}`} data-cta="hero-call"><Icon name="phone" size={18} />{s.hero.call} {site.phone.display}</a>
+      </div>
+    </div>
+  </div>
+  <span class="scroll-cue" aria-hidden="true">{s.hero.scroll}</span>
+</section>

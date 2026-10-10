@@ -1,0 +1,60 @@
+{
+  "_readme": "Team. photo: path under /public (e.g. /media/team/sara.jpg) once real photos exist. Until then the card shows an initial, never a stock face.",
+  "people": [
+    {
+      "id": "sara",
+      "name": "Sara Aryal",
+      "photo": null,
+      "verified": true,
+      "role": {
+        "en": "Owner, medical aesthetician, certified injector, laser technician",
+        "es": "Dueña, esteticista médica, inyectora certificada, técnica en láser"
+      },
+      "bio": {
+        "en": "Fifteen years in skin. Sara opened Cloud9 in 2024 and still does most of the treatments herself, with a soft spot for acne, pigment and melasma that won't take no for an answer.",
+        "es": "Quince años dedicada a la piel. Sara abrió Cloud9 en 2024 y todavía realiza ella misma la mayoría de los tratamientos, con especial cariño por el acné, las manchas y el melasma más rebeldes."
+      },
+      "focus": {
+        "en": [
+          "Injectables",
+          "Microneedling",
+          "Peels",
+          "Laser"
+        ],
+        "es": [
+          "Inyectables",
+          "Microagujas",
+          "Peelings",
+          "Láser"
+        ]
+      }
+    },
+    {
+      "id": "anju",
+      "name": "Anju, NP",
+      "photo": null,
+      "verified": true,
+      "role": {
+        "en": "Nurse practitioner",
+        "es": "Enfermera practicante (NP)"
+      },
+      "bio": {
+        "en": "Anju brings the medical side: health reviews, non-surgical face and body contouring, and our supervised weight-management plans.",
+        "es": "Anju aporta el lado médico: revisiones de salud, contorno facial y corporal no quirúrgico, y nuestros planes de control de peso supervisados."
+      },
+      "focus": {
+        "en": [
+          "Weight management",
+          "Contouring",
+          "Medical review"
+        ],
+        "es": [
+          "Control de peso",
+          "Contorno",
+          "Revisión médica"
+        ]
+      },
+      "_note": "Named as Anju, NP on the old site. Last name not found; add it if she wants it shown."
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+---
+import Hero from './Hero.astro';
+import Intro from './Intro.astro';
+import Depth from './Depth.astro';
+import Menu from './Menu.astro';
+import Clubs from './Clubs.astro';
+import Planner from './Planner.astro';
+import Team from './Team.astro';
+import Reviews from './Reviews.astro';
+import FirstVisit from './FirstVisit.astro';
+import Faq from './Faq.astro';
+import Visit from './Visit.astro';
+interface Props { lang: 'en' | 'es' }
+const { lang } = Astro.props;
+---
+<Hero lang={lang} />
+<Intro lang={lang} />
+<Depth lang={lang} />
+<Menu lang={lang} />
+<Clubs lang={lang} />
+<Planner lang={lang} />
+<Team lang={lang} />
+<Reviews lang={lang} />
+<FirstVisit lang={lang} />
+<Faq lang={lang} />
+<Visit lang={lang} />

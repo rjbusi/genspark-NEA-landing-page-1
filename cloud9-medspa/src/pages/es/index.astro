@@ -1,0 +1,8 @@
+---
+import Base from '../../layouts/Base.astro';
+import Home from '../../components/Home.astro';
+import { t } from '../../lib/site.js';
+const s = t('es');
+const faq = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: s.faq.items.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+---
+<Base lang="es" schema={[faq]}><Home lang="es" /></Base>

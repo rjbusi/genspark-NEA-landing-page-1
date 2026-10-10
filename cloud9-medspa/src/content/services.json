@@ -1,0 +1,359 @@
+{
+  "_readme": "The treatment menu. price: number (USD) or null for 'priced at consult'. unit: 'unit' | 'session' | 'month'. depth: which layer of the depth diagram it belongs to (surface | dermis | volume | muscle | body). downtime: 0 none, 1 a day or two, 2 up to a week. Names stay in English unless name_es is set; descriptions are per language. source = page on the old site the price came from.",
+  "categories": [
+    {
+      "id": "inject",
+      "art": "inject"
+    },
+    {
+      "id": "skin",
+      "art": "skin"
+    },
+    {
+      "id": "renew",
+      "art": "renew"
+    },
+    {
+      "id": "light",
+      "art": "light"
+    },
+    {
+      "id": "hair",
+      "art": "hair"
+    },
+    {
+      "id": "well",
+      "art": "well"
+    }
+  ],
+  "items": [
+    {
+      "id": "botox",
+      "cat": "inject",
+      "name": "Botox & Xeomin",
+      "price": 13,
+      "unit": "unit",
+      "mins": 60,
+      "depth": "muscle",
+      "downtime": 0,
+      "concerns": [
+        "L"
+      ],
+      "source": "/services/botox-neurotoxins/",
+      "verified": true,
+      "en": "Softens the lines you make when you frown, squint or raise your brows. We count units with you before we start.",
+      "es": "Suaviza las líneas que se forman al fruncir el ceño, entrecerrar los ojos o levantar las cejas. Contamos las unidades contigo antes de empezar."
+    },
+    {
+      "id": "filler",
+      "cat": "inject",
+      "name": "Dermal fillers",
+      "name_es": "Rellenos dérmicos",
+      "price": null,
+      "unit": "session",
+      "mins": 60,
+      "depth": "volume",
+      "downtime": 1,
+      "concerns": [
+        "V"
+      ],
+      "source": "/under-eye-fillers-fort-worth-tx/",
+      "verified": true,
+      "en": "Lips, cheeks, chin and under-eyes. Quoted at your consult, so you know the full cost before anything happens.",
+      "es": "Labios, pómulos, mentón y ojeras. Te damos el precio en la consulta, así conoces el costo total antes de empezar."
+    },
+    {
+      "id": "aquagold",
+      "cat": "inject",
+      "name": "Aquagold",
+      "price": null,
+      "unit": "session",
+      "mins": 60,
+      "depth": "dermis",
+      "downtime": 0,
+      "concerns": [
+        "D",
+        "T"
+      ],
+      "source": "/services/aquagold/",
+      "verified": true,
+      "en": "A micro-infusion of tiny amounts of product just under the surface, for a fine, even glow. Repeated every 4 to 6 weeks.",
+      "es": "Una microinfusión de cantidades mínimas de producto justo bajo la superficie, para un brillo fino y parejo. Se repite cada 4 a 6 semanas."
+    },
+    {
+      "id": "newclient",
+      "cat": "skin",
+      "name": "New Client Facial",
+      "price": 99,
+      "unit": "session",
+      "mins": 60,
+      "depth": "surface",
+      "downtime": 0,
+      "concerns": [
+        "D",
+        "T",
+        "A",
+        "S"
+      ],
+      "source": "/services/new-client-facial/",
+      "verified": true,
+      "en": "Your first hour with us. We read your skin, treat it, and build the plan from there.",
+      "es": "Tu primera hora con nosotras. Leemos tu piel, la tratamos y armamos el plan desde ahí."
+    },
+    {
+      "id": "c9facial",
+      "cat": "skin",
+      "name": "Cloud9 Facial",
+      "price": 175,
+      "unit": "session",
+      "mins": 60,
+      "depth": "surface",
+      "downtime": 0,
+      "concerns": [
+        "D",
+        "T"
+      ],
+      "source": "/services/cloud9-facial/",
+      "verified": true,
+      "en": "Our signature hour. Deep clean, exfoliation and hydration, tailored on the day.",
+      "es": "Nuestra hora insignia. Limpieza profunda, exfoliación e hidratación, adaptadas ese mismo día."
+    },
+    {
+      "id": "venus",
+      "cat": "skin",
+      "name": "Venus Glow Facial",
+      "price": 150,
+      "unit": "session",
+      "mins": 90,
+      "depth": "surface",
+      "downtime": 0,
+      "concerns": [
+        "D",
+        "T"
+      ],
+      "source": "/services/hydra-glow-facial/",
+      "verified": true,
+      "en": "Vacuum-assisted exfoliation paired with serum infusion. Ninety unhurried minutes.",
+      "es": "Exfoliación asistida por succión con infusión de sérums. Noventa minutos sin prisa."
+    },
+    {
+      "id": "oxygen",
+      "cat": "skin",
+      "name": "Oxygen RX Facial",
+      "price": 175,
+      "unit": "session",
+      "mins": 60,
+      "depth": "surface",
+      "downtime": 0,
+      "concerns": [
+        "D",
+        "S"
+      ],
+      "source": "/services/oxygen-rx-facial-fort-worth/",
+      "verified": true,
+      "en": "A topical oxygen treatment for tired, reactive skin that tends toward redness.",
+      "es": "Un tratamiento de oxígeno tópico para piel cansada y reactiva con tendencia al enrojecimiento."
+    },
+    {
+      "id": "forever",
+      "cat": "skin",
+      "name": "Forever Young Facial",
+      "price": 175,
+      "unit": "session",
+      "mins": 60,
+      "depth": "surface",
+      "downtime": 0,
+      "concerns": [
+        "L",
+        "D"
+      ],
+      "source": "/services/forever-young-facial/",
+      "verified": true,
+      "en": "Focused on firmness and fine lines. Pause topical prescriptions 4 to 5 days before.",
+      "es": "Enfocado en firmeza y líneas finas. Suspende los tópicos con receta 4 o 5 días antes."
+    },
+    {
+      "id": "beyond",
+      "cat": "skin",
+      "name": "Beyond Botox Facial",
+      "price": 200,
+      "unit": "session",
+      "mins": 90,
+      "depth": "surface",
+      "downtime": 0,
+      "concerns": [
+        "L",
+        "D"
+      ],
+      "source": "/services/beyond-botox-facial/",
+      "verified": true,
+      "en": "Our longest facial, built around smoother-looking expression lines. No needles.",
+      "es": "Nuestro facial más largo, pensado para suavizar la apariencia de las líneas de expresión. Sin agujas."
+    },
+    {
+      "id": "acne",
+      "cat": "skin",
+      "name": "Acne Away POREfection Facial",
+      "price": null,
+      "unit": "session",
+      "mins": 60,
+      "depth": "surface",
+      "downtime": 0,
+      "concerns": [
+        "A"
+      ],
+      "source": "/acne-treatment-fort-worth-tx/",
+      "verified": true,
+      "en": "For active breakouts and congested pores, with a home routine to keep things calm between visits.",
+      "es": "Para brotes activos y poros congestionados, con una rutina en casa para mantener la calma entre visitas."
+    },
+    {
+      "id": "exosomes",
+      "cat": "renew",
+      "name": "Microneedling with exosomes",
+      "name_es": "Microagujas con exosomas",
+      "price": 699,
+      "unit": "session",
+      "mins": 60,
+      "depth": "dermis",
+      "downtime": 1,
+      "concerns": [
+        "T",
+        "L"
+      ],
+      "source": "/services/microneedling-with-exosomes/",
+      "verified": true,
+      "en": "Controlled micro-channels prompt your skin's own repair, paired with an exosome serum. Expect a day or two of pinkness.",
+      "es": "Microcanales controlados activan la reparación natural de la piel, junto con un sérum de exosomas. Espera uno o dos días de enrojecimiento."
+    },
+    {
+      "id": "prp",
+      "cat": "renew",
+      "name": "PRP facial & microneedling",
+      "name_es": "Facial PRP con microagujas",
+      "price": 699,
+      "unit": "session",
+      "mins": 60,
+      "depth": "dermis",
+      "downtime": 1,
+      "concerns": [
+        "T",
+        "L"
+      ],
+      "source": "/services/prp-facial-and-microneedling/",
+      "verified": true,
+      "en": "Microneedling with platelet-rich plasma drawn from your own blood.",
+      "es": "Microagujas con plasma rico en plaquetas obtenido de tu propia sangre."
+    },
+    {
+      "id": "tribella",
+      "cat": "light",
+      "name": "Tribella",
+      "price": 899,
+      "unit": "session",
+      "mins": 60,
+      "depth": "dermis",
+      "downtime": 1,
+      "concerns": [
+        "S",
+        "T",
+        "L"
+      ],
+      "source": "/services/tribella/",
+      "verified": true,
+      "en": "Three energies in one visit: IPL for tone, RF for tightening, nanofractional RF for texture. Usually a short series.",
+      "es": "Tres energías en una visita: IPL para el tono, RF para firmeza y RF nanofraccionada para la textura. Normalmente en una serie corta."
+    },
+    {
+      "id": "ipl",
+      "cat": "light",
+      "name": "IPL photofacial",
+      "name_es": "Fotofacial IPL",
+      "price": 300,
+      "unit": "session",
+      "mins": 60,
+      "depth": "dermis",
+      "downtime": 1,
+      "concerns": [
+        "S"
+      ],
+      "source": "/services/ipl/",
+      "verified": true,
+      "en": "Light that targets sun spots and redness. Spots darken for a few days, then flake away.",
+      "es": "Luz que trata manchas solares y enrojecimiento. Las manchas se oscurecen unos días y luego se desprenden."
+    },
+    {
+      "id": "laser",
+      "cat": "hair",
+      "name": "Laser hair removal",
+      "name_es": "Depilación láser",
+      "price": null,
+      "unit": "session",
+      "mins": 30,
+      "depth": "dermis",
+      "downtime": 0,
+      "concerns": [
+        "H"
+      ],
+      "source": "homepage (memberships)",
+      "verified": true,
+      "en": "Small to large areas, done in a series. Most clients save by taking it through the Glow or Luxe Club.",
+      "es": "De zonas pequeñas a grandes, en una serie de sesiones. La mayoría ahorra con el Glow o Luxe Club."
+    },
+    {
+      "id": "prphair",
+      "cat": "hair",
+      "name": "PRP hair restoration",
+      "name_es": "Restauración capilar con PRP",
+      "price": null,
+      "unit": "session",
+      "mins": 60,
+      "depth": "dermis",
+      "downtime": 0,
+      "concerns": [
+        "R"
+      ],
+      "source": "directory listing",
+      "verified": false,
+      "en": "Your own platelet-rich plasma, placed where hair is thinning. A series, reviewed as you go.",
+      "es": "Tu propio plasma rico en plaquetas, aplicado donde el cabello se adelgaza. En serie, con revisiones en el camino."
+    },
+    {
+      "id": "weight",
+      "cat": "well",
+      "name": "Medical weight loss",
+      "name_es": "Pérdida de peso médica",
+      "price": 399,
+      "priceTo": 599,
+      "unit": "month",
+      "mins": 30,
+      "depth": "body",
+      "downtime": 0,
+      "concerns": [
+        "W"
+      ],
+      "source": "/services/medical-weight-loss/",
+      "verified": true,
+      "en": "A medically supervised monthly plan with Anju, NP, starting with a health review to see if it's right for you.",
+      "es": "Un plan mensual con supervisión médica junto a Anju, NP, que empieza con una revisión de salud para ver si es para ti."
+    },
+    {
+      "id": "iv",
+      "cat": "well",
+      "name": "IV hydration",
+      "name_es": "Hidratación IV",
+      "price": null,
+      "unit": "session",
+      "mins": 45,
+      "depth": "body",
+      "downtime": 0,
+      "concerns": [
+        "I"
+      ],
+      "source": "homepage (Botox Club)",
+      "verified": true,
+      "en": "Fluids, vitamins and a comfortable chair. Two sessions are included in the Botox Club.",
+      "es": "Líquidos, vitaminas y un sillón cómodo. El Botox Club incluye dos sesiones."
+    }
+  ]
+}

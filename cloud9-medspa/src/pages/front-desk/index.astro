@@ -1,0 +1,64 @@
+---
+// Staff-only decoder for plan reference codes. Not linked anywhere, noindex,
+// disallowed in robots.txt and served with X-Robots-Tag (vercel.json).
+import Base from '../../layouts/Base.astro';
+import Wordmark from '../../components/Wordmark.astro';
+import { t, services, price } from '../../lib/site.js';
+const s = t('en');
+const data = {
+  services: services.items.map((it) => ({ id: it.id, name: it.name, cat: it.cat, downtime: it.downtime, mins: it.mins, price: price(it, s) })),
+  p: s.planner,
+};
+---
+<Base lang="en" title="Front desk | Cloud9 Med Spa" description="Staff tool." noindex bare>
+  <section class="section desk" style="padding-top:48px">
+    <div class="wrap" style="max-width:920px">
+      <a href="/" class="brand" style="text-decoration:none"><Wordmark /></a>
+      <h1 class="display h-m" style="margin-top:40px">Front desk decoder</h1>
+      <p class="lede" style="margin-top:12px;max-width:60ch">Type the code the caller reads out (for example C9-LV-FE-1NE-K). Spaces and lowercase are fine.</p>
+      <form class="form" id="desk-form" style="grid-template-columns:1fr auto;align-items:end" novalidate>
+        <div class="field">
+          <label for="desk-code">Reference code</label>
+          <input id="desk-code" name="code" autocomplete="off" autocapitalize="characters" spellcheck="false" style="font-family:ui-monospace,Menlo,monospace;letter-spacing:.08em;font-size:1.2rem" />
+        </div>
+        <button class="btn" type="submit">Decode</button>
+      </form>
+      <div id="desk-out" class="panel" style="margin-top:24px" aria-live="polite" hidden></div>
+      <script type="application/json" id="desk-data" set:html={JSON.stringify(data)}></script>
+    </div>
+  </section>
+  <script>
+    import { decode, recommend } from '../../lib/plan.js';
+    const data = JSON.parse(document.getElementById('desk-data')!.textContent!);
+    const p = data.p;
+    const form = document.getElementById('desk-form') as HTMLFormElement;
+    const out = document.getElementById('desk-out')!;
+    const esc = (x: string) => String(x).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' } as any)[c]);
+    function render(raw: string) {
+      const r = decode(raw);
+      out.hidden = false;
+      if (!r.ok) {
+        out.innerHTML = `<h2 class="h-s display">Code not recognised</h2><p class="muted" style="margin-top:8px">Check the format: C9, then concern letters, area letters, three characters, and a final check letter. Ask the caller to read it again slowly.</p>`;
+        return;
+      }
+      const a = r.answers;
+      const rec = recommend(a, data.services);
+      const row = (k: string, v: string) => `<div style="display:grid;grid-template-columns:180px 1fr;gap:16px;padding:10px 0;border-bottom:1px solid var(--ink-line)"><dt style="font-weight:700">${k}</dt><dd>${v}</dd></div>`;
+      out.innerHTML = `
+        <h2 class="h-s display">${esc(r.code)}</h2>
+        ${r.checksumOk ? '<p class="muted" style="margin-top:6px">Check letter matches.</p>' : '<p style="margin-top:6px;color:#b3261e;font-weight:700">Check letter does not match. One character was probably misheard; confirm with the caller.</p>'}
+        <dl style="margin-top:16px">
+          ${row('Wants to change', a.concerns.map((c: string) => esc(p.concerns[c])).join(', ') || 'Not given')}
+          ${row('Areas', a.areas.map((c: string) => esc(p.areas[c])).join(', ') || 'Not given')}
+          ${row('Downtime', esc(p.downtime[a.downtime]))}
+          ${row('Experience', esc(p.history[a.history]))}
+          ${row('Timing', esc(p.timing[a.timing]))}
+          ${row('Plan shown to client', rec.picks.map((x: any) => `${esc(x.service.name)} (${esc(x.service.price)})`).join('<br>'))}
+          ${row('Club suggested', rec.club ? esc(rec.club) : 'None')}
+        </dl>`;
+    }
+    form.addEventListener('submit', (e) => { e.preventDefault(); render((form.elements.namedItem('code') as HTMLInputElement).value); });
+    const q = new URLSearchParams(location.search).get('code');
+    if (q) { (form.elements.namedItem('code') as HTMLInputElement).value = q; render(q); }
+  </script>
+</Base>

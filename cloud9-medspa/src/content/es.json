@@ -1,0 +1,361 @@
+{
+  "lang": "es",
+  "locale": "es-US",
+  "meta": {
+    "title": "Cloud9 Med Spa | Botox, faciales y láser en el norte de Fort Worth",
+    "description": "Med spa de mujeres en Alta Vista Rd, cerca de Keller y Alliance. Botox desde $13 por unidad, faciales, microagujas, láser y pérdida de peso médica. Reserva tu consulta gratis: (972) 897-2355."
+  },
+  "nav": {
+    "skip": "Ir al contenido",
+    "treatments": "Tratamientos",
+    "depth": "Cómo funciona",
+    "clubs": "Membresías",
+    "plan": "Tu plan",
+    "visit": "Visítanos",
+    "cta": "Consulta gratis",
+    "menu": "Menú",
+    "close": "Cerrar",
+    "langName": "English",
+    "langShort": "EN",
+    "home": "Cloud9 Med Spa, inicio"
+  },
+  "hero": {
+    "h1a": "Tu piel,",
+    "h1b": "en el séptimo cielo.",
+    "lede": "Un med spa de mujeres en el norte de Fort Worth. Botox, faciales, microagujas, láser y pérdida de peso médica, planeados a tu medida en una consulta gratis.",
+    "cta": "Reserva tu consulta gratis",
+    "call": "Llama",
+    "skyLabel": "Ilustración: nubes que pasan lentamente por un cielo cálido de atardecer",
+    "scroll": "Desliza",
+    "chips": [
+      "Consulta gratis",
+      "Botox $13 la unidad",
+      "Negocio de mujeres"
+    ]
+  },
+  "status": {
+    "openNow": "Abierto ahora",
+    "closedNow": "Cerrado ahora",
+    "until": "hasta las",
+    "opens": "Abre",
+    "at": "a las",
+    "today": "hoy",
+    "tomorrow": "mañana"
+  },
+  "intro": {
+    "h2": "Lo bastante pequeñas para conocerte. Lo bastante expertas para ser honestas.",
+    "body": "Cloud9 es un negocio de mujeres, dirigido por mujeres, que abrió en 2024 en Alta Vista Rd. Cada visita empieza con una conversación, no con una lista de ventas. Si algo todavía no es para ti, te lo decimos, y te contamos qué sí lo es.",
+    "facts": [
+      {
+        "k": "Gratis",
+        "v": "la consulta antes de cualquier tratamiento"
+      },
+      {
+        "k": "$13",
+        "v": "por unidad de Botox, contadas contigo"
+      },
+      {
+        "k": "5%",
+        "v": "de descuento para veteranos, socorristas, maestros y estudiantes"
+      },
+      {
+        "k": "CareCredit",
+        "v": "financiamiento aceptado, sujeto a aprobación"
+      }
+    ],
+    "window": "De lunes a sábado, norte de Fort Worth",
+    "windowLabel": "Ilustración: el cielo a través de una ventana en arco"
+  },
+  "depth": {
+    "h2a": "Hasta dónde",
+    "h2b": "llegamos.",
+    "lede": "Cada inquietud vive a una profundidad distinta. Baja por las capas de la piel y descubre qué usamos en cada una.",
+    "diagramLabel": "Diagrama: corte transversal de la piel con epidermis, dermis, grasa y músculo",
+    "layers": {
+      "surface": "Epidermis",
+      "dermis": "Dermis",
+      "volume": "Grasa",
+      "muscle": "Músculo",
+      "body": "Todo el cuerpo"
+    },
+    "stops": [
+      {
+        "id": "surface",
+        "t": "La superficie",
+        "p": "Opacidad, poros tapados, brotes. Los faciales y peelings trabajan en la capa más externa, sin tiempo de recuperación."
+      },
+      {
+        "id": "dermis",
+        "t": "La capa del colágeno",
+        "p": "Textura, cicatrices, manchas, líneas finas y folículos viven aquí. Las microagujas, el PRP, la luz y el láser llegan a ella."
+      },
+      {
+        "id": "volume",
+        "t": "El volumen",
+        "p": "Con el tiempo, el relleno natural bajo la piel se adelgaza. Los rellenos devuelven la forma donde se ha perdido."
+      },
+      {
+        "id": "muscle",
+        "t": "El músculo",
+        "p": "Las líneas de expresión vienen del movimiento. Los neuromoduladores relajan el músculo para que la piel se vea más lisa."
+      },
+      {
+        "id": "body",
+        "t": "Todo tu cuerpo",
+        "p": "Algunas cosas empiezan bajo la piel. El control de peso con supervisión médica y la hidratación IV se ocupan del resto."
+      }
+    ],
+    "cta": "¿No sabes dónde vive lo tuyo? Arma tu plan"
+  },
+  "menu": {
+    "h2": "Tratamientos, con precios.",
+    "lede": "De nuestro menú actual. Tu plan exacto y el total se confirman en tu consulta gratis, antes de empezar.",
+    "cats": {
+      "inject": "Inyectables",
+      "skin": "Faciales",
+      "renew": "Microagujas y PRP",
+      "light": "Luz y energía",
+      "hair": "Cabello y vello",
+      "well": "Bienestar"
+    },
+    "atConsult": "En consulta",
+    "perUnit": "/ unidad",
+    "perMonth": "/ mes",
+    "to": "a",
+    "min": "min",
+    "artLabel": "Ilustración de {cat}",
+    "cta": "Reserva tu consulta gratis",
+    "all": "Todo"
+  },
+  "clubs": {
+    "h2": "Membresías que valen lo que cuestan.",
+    "lede": "Doce meses, un solo pago mensual y 10% de descuento en rellenos y otros servicios mientras seas miembro.",
+    "per": "/ mes",
+    "featured": "La favorita de quien usa Botox",
+    "mathA": "20 unidades de Botox por separado:",
+    "mathB": "En el Botox Club, con todo lo demás incluido:",
+    "cta": "Pregunta por la membresía",
+    "terms": "Membresía de 12 meses. Beneficios y disponibilidad se confirman en tu consulta."
+  },
+  "planner": {
+    "h2a": "Tu plan Cloud9,",
+    "h2b": "en un minuto.",
+    "lede": "Cuéntanos qué tienes en mente. Recibirás un plan inicial con precios y un código para leer cuando llames.",
+    "step": "Paso {n} de 4",
+    "q1": "¿Qué te gustaría cambiar?",
+    "h1": "Elige todas las que quieras.",
+    "q2": "¿En qué zona?",
+    "h2": "Opcional. Sáltalo si no estás segura.",
+    "q3": "¿Cuánto tiempo de recuperación puedes tener?",
+    "q4": "Un poco sobre ti",
+    "q4a": "¿Te has hecho tratamientos antes?",
+    "q4b": "¿Tienes alguna fecha cerca?",
+    "concerns": {
+      "L": "Líneas y arrugas",
+      "V": "Pérdida de volumen o labios finos",
+      "T": "Textura, poros o cicatrices",
+      "S": "Manchas o enrojecimiento",
+      "A": "Brotes de acné",
+      "D": "Piel opaca y cansada",
+      "H": "Vello no deseado",
+      "R": "Cabello que se adelgaza",
+      "W": "Peso",
+      "I": "Energía e hidratación"
+    },
+    "areas": {
+      "F": "Todo el rostro",
+      "E": "Ojeras",
+      "P": "Labios",
+      "N": "Cuello y escote",
+      "B": "Cuerpo"
+    },
+    "downtime": {
+      "0": "Nada. Tengo planes mañana",
+      "1": "Uno o dos días rosada está bien",
+      "2": "Hasta una semana"
+    },
+    "history": {
+      "N": "Sería mi primera vez",
+      "R": "Sí, ya me he hecho tratamientos"
+    },
+    "timing": {
+      "X": "Ninguna fecha en mente",
+      "E": "Un evento en las próximas 4 semanas",
+      "M": "Algo en 1 a 3 meses"
+    },
+    "back": "Atrás",
+    "next": "Siguiente",
+    "finish": "Ver mi plan",
+    "restart": "Empezar de nuevo",
+    "pickOne": "Elige al menos una opción para continuar.",
+    "resultH": "Tu plan inicial",
+    "for": "Para",
+    "club": "Vale la pena mirar",
+    "notes": "Bueno saber",
+    "codeLabel": "Tu código de referencia",
+    "codeHint": "Léelo cuando llames y veremos tus respuestas.",
+    "copy": "Copiar",
+    "copied": "Copiado",
+    "formH": "¿Quieres que te llamemos?",
+    "disclaimer": "Esto es un punto de partida, no un consejo médico. Tu proveedora confirma lo adecuado para ti en una consulta gratis.",
+    "noteEventTox": "El Botox puede tardar hasta dos semanas en asentarse por completo, así que reserva pronto si tienes un evento.",
+    "noteEventDown": "Deja al menos dos semanas entre cualquier tratamiento con recuperación y tu evento.",
+    "noteWeight": "El control de peso empieza con una revisión de salud con Anju, NP.",
+    "noteFirst": "¿Primera vez? El New Client Facial es la forma más suave de empezar.",
+    "noteDowntime0": "Dejamos tu plan solo con tratamientos sin tiempo de recuperación.",
+    "clubBotox": "20 unidades por separado costarían $260. El club cuesta $199 al mes y suma microagujas, un peeling, un facial y dos IV.",
+    "clubGlow": "Dos sesiones de depilación láser, más un facial con dermaplaning y un peeling, por $129 al mes.",
+    "clubLuxe": "Un Cloud9 Facial, un peeling TCA e IPL o Diamondpolar, más láser en zona grande, por $149 al mes."
+  },
+  "form": {
+    "h": "¿Prefieres que te llamemos?",
+    "lede": "Déjanos tu número y te llamamos en horario de atención.",
+    "first": "Nombre",
+    "last": "Apellido",
+    "phone": "Número de celular",
+    "best": "Mejor hora para llamarte",
+    "times": {
+      "morning": "Mañana",
+      "midday": "Mediodía",
+      "afternoon": "Tarde",
+      "any": "Cualquier hora"
+    },
+    "consent": "Acepto que Cloud9 Med Spa me contacte por teléfono o mensaje de texto sobre mi consulta. Pueden aplicarse tarifas de mensajes y datos.",
+    "honeypot": "Deja esto vacío",
+    "submit": "Llámenme",
+    "sending": "Enviando",
+    "okH": "Gracias, {name}.",
+    "okP": "Te llamaremos en horario de atención. Tu referencia es {code}.",
+    "errH": "No se pudo enviar.",
+    "errP": "Algo falló de nuestro lado. Llámanos, nos encantará hablar contigo:",
+    "required": "Completa este campo.",
+    "badPhone": "Escribe un número de EE. UU. de 10 dígitos.",
+    "needConsent": "Marca la casilla para que podamos llamarte.",
+    "privacy": "Solo usamos tus datos para responderte."
+  },
+  "team": {
+    "h2": "Quiénes te atienden.",
+    "lede": "Un equipo pequeño, así que siempre verás las mismas caras.",
+    "photoSoon": "Retrato próximamente"
+  },
+  "reviews": {
+    "h2": "En sus palabras.",
+    "rating": "{value} en Google, con {count} reseñas",
+    "read": "Lee las reseñas en Google",
+    "yelp": "Míranos en Yelp",
+    "insta": "Síguenos en @cloud9medspadfw",
+    "fallback": "Las reseñas reales de nuestras clientas están en nuestro perfil de Google. Léelas allí y luego ven a conocernos."
+  },
+  "visitSteps": {
+    "h2": "Tu primera visita.",
+    "steps": [
+      {
+        "t": "Reserva tu consulta gratis",
+        "p": "Llama o déjanos tu número. Buscamos un horario que te quede bien."
+      },
+      {
+        "t": "Lo conversamos",
+        "p": "Revisamos tu piel, te preguntamos por tu salud y tus metas, y te damos un plan con precios."
+      },
+      {
+        "t": "Empiezas cuando quieras",
+        "p": "Comienza tu tratamiento o llévate el plan a casa para pensarlo. Sin presión."
+      },
+      {
+        "t": "Te damos seguimiento",
+        "p": "Te contactamos después del tratamiento y ajustamos el plan según cambie tu piel."
+      }
+    ]
+  },
+  "faq": {
+    "h2": "Preguntas, respondidas.",
+    "items": [
+      {
+        "q": "¿La consulta es realmente gratis?",
+        "a": "Sí. Tu consulta es gratis y no tienes ninguna obligación de reservar un tratamiento después."
+      },
+      {
+        "q": "¿Cuánto cuesta el Botox?",
+        "a": "$13 por unidad. Contamos tus unidades contigo antes de empezar, así el total queda claro desde el principio."
+      },
+      {
+        "q": "¿Quién me atenderá?",
+        "a": "Sara Aryal, nuestra dueña, es esteticista médica, inyectora certificada y técnica en láser, con 15 años en la industria. Anju, NP, dirige nuestros servicios médicos, incluido el control de peso."
+      },
+      {
+        "q": "¿Ofrecen financiamiento?",
+        "a": "Sí. Aceptamos CareCredit, que te permite pagar tus tratamientos poco a poco, sujeto a aprobación."
+      },
+      {
+        "q": "¿Tienen descuentos?",
+        "a": "Veteranos, socorristas, maestros y estudiantes reciben 5% de descuento adicional en todos los servicios. Los miembros también tienen 10% de descuento en rellenos y otros servicios."
+      },
+      {
+        "q": "¿Cómo funcionan las membresías?",
+        "a": "Las membresías duran 12 meses con un pago mensual fijo. Cada club agrupa tratamientos que usarías de todos modos, y los miembros tienen 10% de descuento en rellenos y otros servicios."
+      },
+      {
+        "q": "¿Hay tiempo de recuperación?",
+        "a": "La mayoría de los faciales, el Botox y la depilación láser no tienen. Las microagujas, el IPL y Tribella pueden dejarte rosada o con puntitos uno o dos días. Te diremos exactamente qué esperar antes de reservar."
+      },
+      {
+        "q": "¿La pérdida de peso médica es para mí?",
+        "a": "Empieza con una revisión de salud con Anju, NP. Si un plan con supervisión médica no es adecuado para ti, te lo diremos."
+      },
+      {
+        "q": "¿Atienden en español?",
+        "a": "Llámanos o pide una llamada e indícanos que prefieres español. Te diremos cómo podemos ayudarte."
+      },
+      {
+        "q": "¿Dónde están?",
+        "a": "11751 Alta Vista Rd, Suite 303, Fort Worth, TX 76244, en el norte de Fort Worth, cerca de Keller. Abrimos de lunes a viernes de 10am a 6pm y los sábados de 10am a 2pm."
+      }
+    ]
+  },
+  "visit": {
+    "h2a": "Visita",
+    "h2b": "Cloud9.",
+    "lede": "En el norte de Fort Worth, a pocos minutos de Keller y Alliance.",
+    "hours": "Horario",
+    "days": {
+      "Mo": "Lunes",
+      "Tu": "Martes",
+      "We": "Miércoles",
+      "Th": "Jueves",
+      "Fr": "Viernes",
+      "Sa": "Sábado",
+      "Su": "Domingo"
+    },
+    "closed": "Cerrado",
+    "address": "Dirección",
+    "contact": "Contacto",
+    "showMap": "Ver el mapa",
+    "mapNote": "Carga Google Maps",
+    "mapTitle": "Mapa con Cloud9 Med Spa en Alta Vista Rd",
+    "mapArt": "Ilustración: mapa estilizado del norte de Fort Worth con un pin en Alta Vista Rd",
+    "google": "Google Maps",
+    "apple": "Apple Maps"
+  },
+  "footer": {
+    "tag": "Un med spa de mujeres en el norte de Fort Worth.",
+    "disclaimer": "Los resultados varían de una persona a otra. Todo tratamiento empieza con una consulta, y los tratamientos con receta requieren una evaluación médica. Nada en este sitio es consejo médico. Botox y Xeomin son marcas registradas de sus respectivos dueños.",
+    "rights": "Cloud9 Med Spa. Todos los derechos reservados.",
+    "follow": "Instagram",
+    "explore": "Explora",
+    "find": "Encuéntranos"
+  },
+  "bar": {
+    "call": "Llamar",
+    "cta": "Consulta gratis"
+  },
+  "review": {
+    "banner": "Versión de revisión: lo marcado SIN VERIFICAR y el logotipo provisional necesitan el visto bueno de la dueña. No aparecen en el sitio publicado.",
+    "tag": "Sin verificar",
+    "logo": "Logotipo provisional. Reemplazar con el archivo original."
+  },
+  "notFound": {
+    "h1": "Esta página se fue volando.",
+    "p": "Puede que se haya movido o que nunca existiera. Volvamos a tierra firme.",
+    "home": "Volver a Cloud9"
+  }
+}
